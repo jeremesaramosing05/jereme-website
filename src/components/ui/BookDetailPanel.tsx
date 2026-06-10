@@ -77,7 +77,9 @@ export function BookDetailPanel({ book, onClose }: Props) {
     ? (shelves.find((s) => s.id === book.shelf)?.label ?? "")
     : "";
 
-  const isInternal = book?.link?.startsWith("/");
+  // PDFs live in /public — serve them with a plain anchor in a new tab,
+  // not client-side routing
+  const isInternal = book?.link?.startsWith("/") && !book.link.endsWith(".pdf");
 
   if (!mounted) return null;
   return createPortal(
