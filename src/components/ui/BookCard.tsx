@@ -44,14 +44,12 @@ export function BookCard({ book, onSelect }: Props) {
     <button
       type="button"
       onClick={() => onSelect(book)}
-      className="group relative shrink-0 scroll-snap-align-start text-left focus-visible:outline-accent"
-      style={{ width: 180 }}
+      className="group relative shrink-0 snap-start w-[180px] text-left focus-visible:outline-accent"
       aria-label={`${book.title} by ${book.author}`}
     >
       {/* Cover */}
       <div
-        className="relative overflow-hidden rounded-lg border border-line bg-surface transition-transform duration-300 group-hover:-translate-y-1"
-        style={{ height: 240 }}
+        className="relative h-60 overflow-hidden rounded-lg border border-line bg-surface transition-transform duration-300 group-hover:-translate-y-1"
       >
         <BookCover book={book} />
 
