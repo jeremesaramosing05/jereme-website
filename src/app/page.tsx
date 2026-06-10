@@ -2,6 +2,7 @@ import Link from "next/link";
 import { HeroReveal, Reveal } from "@/components/motion/Reveal";
 import { ButtonLink } from "@/components/ui/Button";
 import { ProjectCard } from "@/components/ui/ProjectCard";
+import { LibraryTeaser } from "@/components/ui/LibraryTeaser";
 import { profile } from "@/content/profile";
 import { featuredProjects } from "@/content/projects";
 
@@ -97,6 +98,26 @@ export default function Home() {
               <ProjectCard project={project} />
             </Reveal>
           ))}
+        </div>
+      </section>
+
+      {/* Library teaser */}
+      <section className="border-t border-line">
+        <div className="mx-auto max-w-5xl px-6 py-24">
+          <Reveal>
+            <div className="flex items-end justify-between">
+              <h2 className="font-display text-3xl tracking-tight sm:text-4xl">
+                From my library
+              </h2>
+              <Link
+                href="/library"
+                className="text-sm text-muted transition-colors hover:text-accent"
+              >
+                Browse all →
+              </Link>
+            </div>
+          </Reveal>
+          <LibraryTeaser />
         </div>
       </section>
 
