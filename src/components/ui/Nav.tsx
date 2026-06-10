@@ -8,6 +8,7 @@ import { profile } from "@/content/profile";
 
 const links = [
   { href: "/work", label: "Work" },
+  { href: "/library", label: "Library" },
   { href: "/resume", label: "Resume" },
   { href: "/links", label: "Links" },
   { href: "/contact", label: "Contact" },
