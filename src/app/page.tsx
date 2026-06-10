@@ -30,6 +30,22 @@ export default function Home() {
         </HeroReveal>
       </section>
 
+      {/* Literary quote */}
+      <section className="border-t border-line">
+        <div className="mx-auto max-w-3xl px-6 py-16 sm:py-20">
+          <Reveal>
+            <blockquote className="border-l-2 border-accent pl-6">
+              <p className="font-display text-2xl italic leading-relaxed tracking-tight text-muted sm:text-3xl">
+                &ldquo;{profile.literaryQuote.text}&rdquo;
+              </p>
+              <cite className="mt-4 block text-sm not-italic text-muted/70">
+                — {profile.literaryQuote.author}
+              </cite>
+            </blockquote>
+          </Reveal>
+        </div>
+      </section>
+
       {/* About */}
       <section className="border-t border-line bg-surface">
         <div className="mx-auto grid max-w-5xl gap-12 px-6 py-24 sm:grid-cols-[1fr_1.4fr]">

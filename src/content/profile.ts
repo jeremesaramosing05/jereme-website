@@ -22,6 +22,10 @@ export const profile = {
     "Video Editing",
     "Content Creation",
   ],
+  literaryQuote: {
+    text: "A reader lives a thousand lives before he dies. The man who never reads lives only one.",
+    author: "George R.R. Martin",
+  },
   socials: [
     { label: "GitHub", href: "https://github.com/", handle: "@jereme" },
     { label: "LinkedIn", href: "https://linkedin.com/", handle: "Jereme Saramosing" },
