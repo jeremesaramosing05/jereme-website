@@ -11,6 +11,7 @@ Framer Motion.
 | `/` | Hero, about, featured work, contact CTA |
 | `/work` | Full project gallery |
 | `/work/[slug]` | Case study (problem → process → result) |
+| `/library` | Virtual library — books I've written and books I love |
 | `/resume` | Experience, education, toolset + PDF download |
 | `/links` | Linktree-style hub for social media bios |
 | `/contact` | Contact form (Resend-powered API route) |
@@ -19,9 +20,10 @@ Framer Motion.
 
 All personal content lives in `src/content/` — no code changes needed:
 
-- `profile.ts` — name, tagline, bio, skills, social links
+- `profile.ts` — name, tagline, bio, skills, social links, literary quote
 - `projects.ts` — the work gallery and case studies
 - `resume.ts` — experience, education, toolset
+- `library.ts` — bookshelves and books (covers go in `public/library/<slug>.jpg`)
 
 Drop a real resume at `public/resume.pdf` (a placeholder is there now).
 Project cover images go in `public/work/<slug>.jpg` — set `cover` on the
