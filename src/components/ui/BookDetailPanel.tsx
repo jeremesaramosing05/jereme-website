@@ -16,6 +16,7 @@ type Props = {
 export function BookDetailPanel({ book, onClose }: Props) {
   const reduce = useReducedMotion();
   const closeRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
 
   // Lock body scroll and focus close button when panel opens
   useEffect(() => {
@@ -37,6 +38,34 @@ export function BookDetailPanel({ book, onClose }: Props) {
     document.addEventListener("keydown", handleKey);
     return () => document.removeEventListener("keydown", handleKey);
   }, [onClose]);
+
+  // Focus trap: intercept Tab/Shift-Tab inside the panel
+  useEffect(() => {
+    if (!book) return;
+
+    function trapFocus(e: KeyboardEvent) {
+      if (e.key !== "Tab" || !panelRef.current) return;
+      const focusable = panelRef.current.querySelectorAll<HTMLElement>(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last?.focus();
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first?.focus();
+        }
+      }
+    }
+
+    document.addEventListener("keydown", trapFocus);
+    return () => document.removeEventListener("keydown", trapFocus);
+  }, [book]);
 
   const shelfLabel = book
     ? (shelves.find((s) => s.id === book.shelf)?.label ?? "")
@@ -61,6 +90,7 @@ export function BookDetailPanel({ book, onClose }: Props) {
 
           {/* Panel — slides up on mobile, centered on desktop */}
           <motion.div
+            ref={panelRef}
             role="dialog"
             aria-modal="true"
             aria-label={book.title}
@@ -135,7 +165,7 @@ export function BookDetailPanel({ book, onClose }: Props) {
                     onClick={onClose}
                     className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm tracking-wide text-background transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent-strong"
                   >
-                    Read my work →
+                    {book.isMine ? "Read my work →" : "Learn more →"}
                   </Link>
                 ) : (
                   <a
@@ -144,7 +174,7 @@ export function BookDetailPanel({ book, onClose }: Props) {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 rounded-full border border-line px-5 py-2.5 text-sm tracking-wide transition-all duration-300 hover:-translate-y-0.5 hover:border-accent hover:text-accent"
                   >
-                    Learn more ↗
+                    {book.isMine ? "Read my work →" : "Learn more →"}
                   </a>
                 )}
               </div>
