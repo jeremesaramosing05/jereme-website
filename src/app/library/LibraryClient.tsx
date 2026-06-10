@@ -19,6 +19,7 @@ export function LibraryClient() {
               {/* Shelf label */}
               <div className="flex items-baseline gap-3 px-6 sm:px-0">
                 <h2 className="font-display text-2xl tracking-tight">{shelf.label}</h2>
+                <span className="text-sm text-muted">·</span>
                 <span className="text-sm text-muted">{shelfBooks.length} books</span>
               </div>
 

@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
 import type { Book } from "@/content/library";
@@ -17,6 +18,7 @@ export function BookDetailPanel({ book, onClose }: Props) {
   const reduce = useReducedMotion();
   const closeRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
 
   // Lock body scroll and focus close button when panel opens
   useEffect(() => {
@@ -67,13 +69,18 @@ export function BookDetailPanel({ book, onClose }: Props) {
     return () => document.removeEventListener("keydown", trapFocus);
   }, [book]);
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const shelfLabel = book
     ? (shelves.find((s) => s.id === book.shelf)?.label ?? "")
     : "";
 
   const isInternal = book?.link?.startsWith("/");
 
-  return (
+  if (!mounted) return null;
+  return createPortal(
     <AnimatePresence>
       {book && (
         <>
@@ -182,6 +189,7 @@ export function BookDetailPanel({ book, onClose }: Props) {
           </motion.div>
         </>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 }
