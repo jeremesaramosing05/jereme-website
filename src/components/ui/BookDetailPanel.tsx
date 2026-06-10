@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, startTransition } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
@@ -70,7 +70,7 @@ export function BookDetailPanel({ book, onClose }: Props) {
   }, [book]);
 
   useEffect(() => {
-    setMounted(true);
+    startTransition(() => setMounted(true));
   }, []);
 
   const shelfLabel = book

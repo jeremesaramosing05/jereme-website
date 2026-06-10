@@ -8,7 +8,7 @@ import type { Book } from "@/content/library";
 export function LibraryTeaser() {
   const router = useRouter();
 
-  function handleSelect(_book: Book) {
+  function handleSelect(_: Book) {
     router.push("/library");
   }
 

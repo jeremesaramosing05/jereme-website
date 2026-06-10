@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, startTransition } from "react";
 import { useTheme } from "next-themes";
 import { profile } from "@/content/profile";
 
@@ -17,7 +17,7 @@ const links = [
 function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  useEffect(() => { startTransition(() => setMounted(true)); }, []);
 
   if (!mounted) return <span className="h-10 w-10" />;
 
