@@ -72,7 +72,10 @@ export function ShelfRow({ books, onSelect }: Props) {
           onClick={() => clickStep(-1)}
           onPointerDown={() => pressStart(-1)}
           onPointerUp={pressEnd}
-          onPointerLeave={pressEnd}
+          onPointerLeave={() => {
+            pressEnd();
+            held.current = false; // pointerleave never precedes a click — safe to reset
+          }}
           className={`${arrowBase} left-2 ${
             canLeft ? "" : "pointer-events-none opacity-25"
           }`}
@@ -103,7 +106,10 @@ export function ShelfRow({ books, onSelect }: Props) {
           onClick={() => clickStep(1)}
           onPointerDown={() => pressStart(1)}
           onPointerUp={pressEnd}
-          onPointerLeave={pressEnd}
+          onPointerLeave={() => {
+            pressEnd();
+            held.current = false; // pointerleave never precedes a click — safe to reset
+          }}
           className={`${arrowBase} right-2 ${
             canRight ? "" : "pointer-events-none opacity-25"
           }`}

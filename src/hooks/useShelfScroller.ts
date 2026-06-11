@@ -57,6 +57,11 @@ export function useShelfScroller<T extends HTMLElement>(): ShelfScroller<T> {
     setCanRight(el.scrollLeft < max - 4);
   }, []);
 
+  // tickRef holds the stable rAF callback pointer so tick can reschedule
+  // itself without a self-referential useCallback dependency (immutability rule)
+  // and without mutating the ref during render (refs rule).
+  const tickRef = useRef<() => void>(() => undefined);
+
   const tick = useCallback(() => {
     const el = ref.current;
     if (!el) {
@@ -78,15 +83,20 @@ export function useShelfScroller<T extends HTMLElement>(): ShelfScroller<T> {
       engineOn.current = false;
       return;
     }
-    rafId.current = requestAnimationFrame(tick);
+    rafId.current = requestAnimationFrame(tickRef.current);
   }, [clamp, updateEdges]);
+
+  // Sync tickRef in an effect so we never write to a ref during render.
+  useEffect(() => {
+    tickRef.current = tick;
+  }, [tick]);
 
   const wake = useCallback(() => {
     if (!engineOn.current) {
       engineOn.current = true;
-      rafId.current = requestAnimationFrame(tick);
+      rafId.current = requestAnimationFrame(tickRef.current);
     }
-  }, [tick]);
+  }, []);
 
   const step = useCallback(
     (dir: -1 | 1) => {
