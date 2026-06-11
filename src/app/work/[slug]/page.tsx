@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Reveal } from "@/components/motion/Reveal";
 import { ButtonLink } from "@/components/ui/Button";
+import { PosDemo } from "@/components/work/PosDemo";
 import { getProject, projects } from "@/content/projects";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -80,6 +81,21 @@ export default async function ProjectPage({ params }: Props) {
       <Reveal delay={0.15}>
         <p className="mt-10 text-lg leading-relaxed">{project.summary}</p>
       </Reveal>
+
+      {project.demo === "pos" && (
+        <Reveal delay={0.2}>
+          <h2 className="mt-12 font-display text-2xl tracking-tight">
+            Try it live
+          </h2>
+          <p className="mt-4 leading-relaxed text-muted">
+            A faithful browser recreation of the POS — build a cart, apply a
+            discount, complete a sale, and get a receipt. No login required.
+          </p>
+          <div className="mt-6">
+            <PosDemo />
+          </div>
+        </Reveal>
+      )}
 
       {sections.map(({ key, label }) => (
         <Reveal key={key}>

@@ -14,6 +14,8 @@ export type Project = {
   hue: number;
   cover?: string;
   featured: boolean;
+  /** Renders a live interactive demo on the case-study page when set */
+  demo?: "pos";
   caseStudy: {
     problem: string;
     process: string;
@@ -24,22 +26,23 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "data-analyst-dashboard",
-    title: "Data Analyst Dashboard",
+    slug: "pos-inventory-system",
+    title: "POS & Inventory System",
     year: "2026",
-    role: "Design & Development",
+    role: "Full-Stack Development",
     summary:
-      "An interactive analytics app that turns raw spreadsheets into clear, decision-ready visual stories.",
-    tags: ["Data Visualization", "Web App", "UI Design"],
+      "A complete point-of-sale and inventory app — product management, real-time stock control, cart, discounts, checkout, and printable receipts — built on Google Apps Script with a live spreadsheet as its database.",
+    tags: ["Full-Stack", "Apps Script", "UI Design", "Inventory"],
     hue: 162,
     featured: true,
+    demo: "pos",
     caseStudy: {
       problem:
-        "Raw data in spreadsheets is hard to read and even harder to act on. The goal was a tool that lets non-technical users explore their numbers visually.",
+        "Small shops rarely need expensive POS hardware — they need something simple, free, and reliable that runs on tools they already have. The challenge was to build a real sales-and-inventory system on top of an ordinary Google Sheet, with no servers to maintain and no software to install.",
       process:
-        "Designed a clean dashboard layout with a clear visual hierarchy, then built interactive charts and filters so every question about the data is one click away.",
+        "I designed a Google Sheet as the database (Products, Transactions, Settings) and wrote the application layer in Apps Script. The server handles the business logic — auto-generating product IDs, detecting duplicates, validating stock before every sale, deducting inventory, and logging each transaction with a unique ID. The cashier interface is a clean dialog: pick products, build a cart, apply a discount, complete the sale, and print a receipt.",
       result:
-        "A fast, friendly analytics app that turns hours of spreadsheet squinting into minutes of insight.",
+        "A working POS that turns a blank spreadsheet into a functioning store — tracking inventory, preventing overselling, and producing receipts, all for free. The live demo below is a faithful browser recreation you can try right now.",
     },
   },
   {
