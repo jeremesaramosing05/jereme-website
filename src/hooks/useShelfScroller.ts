@@ -63,13 +63,15 @@ export function useShelfScroller<T extends HTMLElement>(): ShelfScroller<T> {
       engineOn.current = false;
       return;
     }
-    if (holdDir.current) {
-      target.current = clamp(target.current + holdDir.current * HOLD_SPEED);
-    }
+    target.current = clamp(
+      target.current + (holdDir.current ? holdDir.current * HOLD_SPEED : 0)
+    );
     const delta = target.current - el.scrollLeft;
-    el.scrollLeft = reduced.current
-      ? target.current
-      : el.scrollLeft + delta * LERP;
+    if (reduced.current || Math.abs(delta) < 1) {
+      el.scrollLeft = target.current; // snap — defeats subpixel stall
+    } else {
+      el.scrollLeft += delta * LERP;
+    }
     updateEdges();
     const settled = Math.abs(target.current - el.scrollLeft) < 0.5;
     if (settled && !overRow.current && !holdDir.current) {
@@ -109,8 +111,11 @@ export function useShelfScroller<T extends HTMLElement>(): ShelfScroller<T> {
       const el = ref.current;
       if (!el) return;
       if (!fine.current) {
+        if (touchHold.current) return; // hold already running
+        const behavior = reduced.current ? ("auto" as const) : ("smooth" as const);
+        el.scrollBy({ left: dir * STEP_PX, behavior }); // fire immediately
         touchHold.current = setInterval(() => {
-          el.scrollBy({ left: dir * STEP_PX, behavior: "smooth" });
+          el.scrollBy({ left: dir * STEP_PX, behavior });
         }, TOUCH_HOLD_MS);
         return;
       }
@@ -171,11 +176,17 @@ export function useShelfScroller<T extends HTMLElement>(): ShelfScroller<T> {
       overRow.current = false;
     };
 
+    const onScroll = () => {
+      if (!engineOn.current) target.current = el.scrollLeft;
+      updateEdges();
+    };
+    el.addEventListener("scroll", onScroll, { passive: true });
     el.addEventListener("mousemove", onMove);
     el.addEventListener("mouseenter", onEnter);
     el.addEventListener("mouseleave", onLeave);
     return () => {
       el.style.scrollSnapType = prevSnap;
+      el.removeEventListener("scroll", onScroll);
       el.removeEventListener("mousemove", onMove);
       el.removeEventListener("mouseenter", onEnter);
       el.removeEventListener("mouseleave", onLeave);
