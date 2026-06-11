@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Reveal } from "@/components/motion/Reveal";
@@ -62,19 +63,33 @@ export default async function ProjectPage({ params }: Props) {
       </Reveal>
 
       <Reveal delay={0.1}>
-        <div
-          className="mt-10 flex aspect-[16/9] items-center justify-center overflow-hidden rounded-xl border border-line"
-          style={{
-            background: `linear-gradient(135deg, hsl(${project.hue} 28% 92%), hsl(${project.hue} 22% 84%))`,
-          }}
-        >
-          <span
-            className="font-display text-8xl opacity-30"
-            style={{ color: `hsl(${project.hue} 30% 30%)` }}
-            aria-hidden
-          >
-            {project.title.charAt(0)}
-          </span>
+        <div className="relative mt-10 aspect-[16/9] overflow-hidden rounded-xl border border-line">
+          {project.cover ? (
+            <Image
+              src={project.cover}
+              alt={`${project.title} cover`}
+              fill
+              priority
+              unoptimized
+              sizes="(min-width: 768px) 768px, 100vw"
+              className="object-cover"
+            />
+          ) : (
+            <div
+              className="flex h-full w-full items-center justify-center"
+              style={{
+                background: `linear-gradient(135deg, hsl(${project.hue} 28% 92%), hsl(${project.hue} 22% 84%))`,
+              }}
+            >
+              <span
+                className="font-display text-8xl opacity-30"
+                style={{ color: `hsl(${project.hue} 30% 30%)` }}
+                aria-hidden
+              >
+                {project.title.charAt(0)}
+              </span>
+            </div>
+          )}
         </div>
       </Reveal>
 

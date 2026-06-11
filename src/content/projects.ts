@@ -34,6 +34,7 @@ export const projects: Project[] = [
       "A complete point-of-sale and inventory app — product management, real-time stock control, cart, discounts, checkout, and printable receipts — built on Google Apps Script with a live spreadsheet as its database.",
     tags: ["Full-Stack", "Apps Script", "UI Design", "Inventory"],
     hue: 162,
+    cover: "/work/pos-inventory-system.svg",
     featured: true,
     demo: "pos",
     caseStudy: {
