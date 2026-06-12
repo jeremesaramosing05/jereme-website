@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { Reveal } from "@/components/motion/Reveal";
 import { ButtonLink } from "@/components/ui/Button";
 import { PosDemo } from "@/components/work/PosDemo";
+import { DashboardDemo } from "@/components/work/DashboardDemo";
 import { getProject, projects } from "@/content/projects";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -108,6 +109,22 @@ export default async function ProjectPage({ params }: Props) {
           </p>
           <div className="mt-6">
             <PosDemo />
+          </div>
+        </Reveal>
+      )}
+
+      {project.demo === "dashboard" && (
+        <Reveal delay={0.2}>
+          <h2 className="mt-12 font-display text-2xl tracking-tight">
+            Try it live
+          </h2>
+          <p className="mt-4 leading-relaxed text-muted">
+            The real app, running in your browser. Click a sample dataset
+            (sales, survey, finance, or pandemic) and watch it clean, analyze,
+            and build a dashboard with insights — or drop in your own Excel/CSV.
+          </p>
+          <div className="mt-6">
+            <DashboardDemo />
           </div>
         </Reveal>
       )}

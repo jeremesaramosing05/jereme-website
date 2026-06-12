@@ -15,7 +15,7 @@ export type Project = {
   cover?: string;
   featured: boolean;
   /** Renders a live interactive demo on the case-study page when set */
-  demo?: "pos";
+  demo?: "pos" | "dashboard";
   caseStudy: {
     problem: string;
     process: string;
@@ -25,6 +25,27 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    slug: "data-analyst-dashboard",
+    title: "Data Analyst Dashboard",
+    year: "2026",
+    role: "Full-Stack Development",
+    summary:
+      "A desktop and web app that turns any Excel or CSV file into a beautiful, interactive dashboard — automatically. Drop in a file and it cleans the data, detects the sector, analyzes it, builds charts, and writes plain-language insights and recommendations, all running locally with no setup.",
+    tags: ["Data Analytics", "Electron", "DuckDB", "AI Insights"],
+    hue: 250,
+    cover: "/work/data-analyst-dashboard.svg",
+    featured: true,
+    demo: "dashboard",
+    caseStudy: {
+      problem:
+        "Most people sit on spreadsheets full of answers they can't see. Real analysis means hours of cleaning, pivoting, charting, and interpreting in Excel — skills and time most don't have. The goal was an app where a simple import does all of it automatically, for any field: sales, finance, health, surveys, anything.",
+      process:
+        "I built an analytics engine around DuckDB that runs entirely on the user's machine. A file flows through a pipeline: import → scan and identify the sector → auto-clean (with an undoable report) → analyze every variable combination → build an adaptive dashboard → write grounded insights. A flexible Explore tab adds any-variable charts, Excel-style pivots, and formulas that show their working. Numbers are always computed first; the AI only narrates them, so figures are never invented.",
+      result:
+        "A complete, installable analytics tool — drop a spreadsheet, get a cleaned dataset, a dense interactive dashboard, reporting indices, and actionable recommendations in seconds. The live demo below is the real app running in your browser: try a sample dataset and watch it work end to end.",
+    },
+  },
   {
     slug: "pos-inventory-system",
     title: "POS & Inventory System",

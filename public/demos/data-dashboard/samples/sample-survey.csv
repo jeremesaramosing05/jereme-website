@@ -1,0 +1,401 @@
+respondent_id,age_group,gender,satisfaction,recommend_score,department
+R0001,55+,Prefer not to say,Satisfied,8,Support
+R0002,18-24,Female,Neutral,5,Finance
+R0003,25-34,Female,Very satisfied,9,Finance
+R0004,35-44,Female,Very satisfied,10,HR
+R0005,55+,Female,Very satisfied,9,Support
+R0006,35-44,Prefer not to say,Very dissatisfied,1,Sales
+R0007,35-44,Male,Very dissatisfied,1,Finance
+R0008,55+,Male,Satisfied,8,HR
+R0009,18-24,Male,Very satisfied,9,HR
+R0010,25-34,Male,Very satisfied,10,Sales
+R0011,45-54,Female,Very satisfied,9,HR
+R0012,25-34,Prefer not to say,Very satisfied,9,Sales
+R0013,18-24,Male,Very dissatisfied,1,Finance
+R0014,25-34,Male,Neutral,5,HR
+R0015,55+,Female,Very satisfied,10,Sales
+R0016,35-44,Male,Very satisfied,9,HR
+R0017,25-34,Prefer not to say,Neutral,6,Sales
+R0018,35-44,Male,Dissatisfied,2,HR
+R0019,35-44,Prefer not to say,Very satisfied,10,Finance
+R0020,35-44,Female,Dissatisfied,4,Engineering
+R0021,18-24,Female,Satisfied,8,Sales
+R0022,55+,Prefer not to say,Very satisfied,10,Support
+R0023,35-44,Female,Satisfied,7,HR
+R0024,45-54,Female,Neutral,6,Engineering
+R0025,25-34,Female,Very satisfied,10,Support
+R0026,45-54,Prefer not to say,Satisfied,7,HR
+R0027,35-44,Female,Dissatisfied,4,Engineering
+R0028,25-34,Female,Very dissatisfied,2,HR
+R0029,45-54,Female,Very satisfied,10,Engineering
+R0030,35-44,Prefer not to say,Neutral,6,Support
+R0031,45-54,Prefer not to say,Neutral,6,Engineering
+R0032,55+,Male,Very dissatisfied,1,Finance
+R0033,55+,Female,Very satisfied,10,Sales
+R0034,45-54,Male,Very dissatisfied,2,Support
+R0035,55+,Male,Satisfied,7,HR
+R0036,18-24,Prefer not to say,Very dissatisfied,0,HR
+R0037,18-24,Female,Satisfied,7,Finance
+R0038,25-34,Prefer not to say,Satisfied,7,Support
+R0039,35-44,Female,Very satisfied,9,HR
+R0040,18-24,Prefer not to say,Neutral,6,Engineering
+R0041,35-44,Prefer not to say,Very dissatisfied,0,Support
+R0042,55+,Female,Very satisfied,10,HR
+R0043,45-54,Female,Very satisfied,10,Support
+R0044,18-24,Male,Very satisfied,9,Engineering
+R0045,18-24,Female,Dissatisfied,3,Sales
+R0046,35-44,Female,Dissatisfied,3,Support
+R0047,55+,Prefer not to say,Satisfied,8,Support
+R0048,55+,Male,Dissatisfied,4,Engineering
+R0049,55+,Prefer not to say,Satisfied,8,HR
+R0050,18-24,Female,Very satisfied,10,HR
+R0051,45-54,Male,Very satisfied,10,Sales
+R0052,45-54,Male,Dissatisfied,3,Support
+R0053,55+,Female,Very satisfied,10,HR
+R0054,55+,Male,Very satisfied,9,HR
+R0055,55+,Female,Neutral,5,Engineering
+R0056,18-24,Male,Neutral,5,Support
+R0057,18-24,Female,Very satisfied,9,Engineering
+R0058,25-34,Prefer not to say,Very satisfied,9,Engineering
+R0059,25-34,Male,Very satisfied,10,Engineering
+R0060,45-54,Male,Satisfied,7,Finance
+R0061,55+,Prefer not to say,Very dissatisfied,0,Finance
+R0062,45-54,Male,Neutral,5,Sales
+R0063,55+,Female,Dissatisfied,3,Engineering
+R0064,25-34,Male,Dissatisfied,4,Finance
+R0065,55+,Male,Very satisfied,10,HR
+R0066,25-34,Male,Very dissatisfied,0,Support
+R0067,55+,Prefer not to say,Satisfied,8,HR
+R0068,45-54,Female,Neutral,6,Sales
+R0069,18-24,Male,Neutral,6,Engineering
+R0070,55+,Female,Very satisfied,10,Sales
+R0071,18-24,Prefer not to say,Very satisfied,10,Finance
+R0072,25-34,Female,Satisfied,8,Finance
+R0073,25-34,Female,Very satisfied,9,HR
+R0074,55+,Male,Satisfied,7,Finance
+R0075,55+,Prefer not to say,Very satisfied,10,Sales
+R0076,18-24,Prefer not to say,Neutral,5,Sales
+R0077,55+,Prefer not to say,Neutral,6,Sales
+R0078,25-34,Female,Satisfied,8,HR
+R0079,18-24,Female,Neutral,5,Engineering
+R0080,18-24,Prefer not to say,Dissatisfied,2,Engineering
+R0081,55+,Male,Very satisfied,10,Support
+R0082,55+,Prefer not to say,Neutral,5,Support
+R0083,45-54,Prefer not to say,Satisfied,8,Engineering
+R0084,18-24,Prefer not to say,Dissatisfied,4,HR
+R0085,35-44,Female,Neutral,6,Finance
+R0086,18-24,Female,Very satisfied,9,Finance
+R0087,55+,Prefer not to say,Satisfied,8,Engineering
+R0088,55+,Prefer not to say,Very satisfied,10,Finance
+R0089,35-44,Prefer not to say,Satisfied,8,Support
+R0090,45-54,Prefer not to say,Very satisfied,10,HR
+R0091,55+,Male,Satisfied,9,HR
+R0092,25-34,Male,Neutral,4,Engineering
+R0093,55+,Male,Very satisfied,9,Sales
+R0094,45-54,Female,Dissatisfied,3,Engineering
+R0095,45-54,Male,Dissatisfied,4,Sales
+R0096,18-24,Prefer not to say,Very satisfied,10,Support
+R0097,35-44,Male,Satisfied,8,Engineering
+R0098,35-44,Male,Satisfied,7,Support
+R0099,25-34,Male,Neutral,5,Sales
+R0100,45-54,Prefer not to say,Very dissatisfied,1,Finance
+R0101,35-44,Female,Dissatisfied,3,Support
+R0102,55+,Male,Neutral,5,Support
+R0103,35-44,Female,Satisfied,7,Finance
+R0104,35-44,Prefer not to say,Dissatisfied,4,HR
+R0105,35-44,Male,Dissatisfied,4,Sales
+R0106,18-24,Male,Dissatisfied,4,Engineering
+R0107,55+,Prefer not to say,Very satisfied,9,Engineering
+R0108,18-24,Female,Very satisfied,10,HR
+R0109,18-24,Female,Dissatisfied,3,Engineering
+R0110,55+,Prefer not to say,Dissatisfied,3,Finance
+R0111,25-34,Prefer not to say,Very satisfied,10,HR
+R0112,18-24,Female,Very satisfied,10,Sales
+R0113,25-34,Male,Neutral,6,Finance
+R0114,45-54,Female,Very satisfied,10,HR
+R0115,55+,Prefer not to say,Satisfied,7,Sales
+R0116,35-44,Female,Satisfied,7,Engineering
+R0117,25-34,Prefer not to say,Very satisfied,10,Finance
+R0118,55+,Female,Dissatisfied,3,HR
+R0119,45-54,Prefer not to say,Very satisfied,9,Support
+R0120,18-24,Female,Very satisfied,10,Sales
+R0121,25-34,Prefer not to say,Satisfied,7,Engineering
+R0122,25-34,Male,Dissatisfied,2,Sales
+R0123,25-34,Prefer not to say,Very dissatisfied,1,Finance
+R0124,25-34,Female,Satisfied,8,Engineering
+R0125,18-24,Female,Neutral,5,Finance
+R0126,18-24,Prefer not to say,Very dissatisfied,2,Support
+R0127,55+,Female,Neutral,6,Finance
+R0128,18-24,Prefer not to say,Dissatisfied,4,Finance
+R0129,45-54,Male,Neutral,6,Finance
+R0130,35-44,Male,Satisfied,8,Support
+R0131,18-24,Prefer not to say,Very satisfied,9,HR
+R0132,55+,Prefer not to say,Dissatisfied,3,HR
+R0133,55+,Female,Very dissatisfied,2,HR
+R0134,35-44,Female,Dissatisfied,3,Finance
+R0135,18-24,Male,Dissatisfied,4,Support
+R0136,35-44,Female,Satisfied,8,Support
+R0137,45-54,Prefer not to say,Very satisfied,10,HR
+R0138,55+,Prefer not to say,Satisfied,7,Engineering
+R0139,45-54,Prefer not to say,Dissatisfied,2,Sales
+R0140,55+,Prefer not to say,Dissatisfied,4,Finance
+R0141,18-24,Prefer not to say,Satisfied,8,Finance
+R0142,55+,Prefer not to say,Satisfied,9,Support
+R0143,35-44,Female,Dissatisfied,3,Finance
+R0144,35-44,Female,Satisfied,7,Finance
+R0145,45-54,Female,Satisfied,7,Engineering
+R0146,25-34,Female,Dissatisfied,2,Engineering
+R0147,18-24,Female,Satisfied,7,HR
+R0148,35-44,Female,Neutral,5,Finance
+R0149,18-24,Female,Neutral,5,HR
+R0150,18-24,Prefer not to say,Dissatisfied,2,Support
+R0151,25-34,Female,Very dissatisfied,1,HR
+R0152,25-34,Female,Satisfied,8,Sales
+R0153,18-24,Male,Dissatisfied,2,Finance
+R0154,45-54,Female,Very satisfied,10,Finance
+R0155,18-24,Male,Dissatisfied,4,Engineering
+R0156,55+,Prefer not to say,Dissatisfied,3,HR
+R0157,18-24,Female,Dissatisfied,4,Sales
+R0158,25-34,Prefer not to say,Dissatisfied,2,Finance
+R0159,25-34,Male,Satisfied,8,HR
+R0160,25-34,Male,Very satisfied,10,Sales
+R0161,45-54,Female,Dissatisfied,2,Sales
+R0162,35-44,Female,Very dissatisfied,1,Sales
+R0163,35-44,Female,Very satisfied,10,Engineering
+R0164,35-44,Female,Neutral,5,Sales
+R0165,25-34,Male,Very satisfied,10,HR
+R0166,25-34,Female,Dissatisfied,3,HR
+R0167,25-34,Male,Very satisfied,10,Support
+R0168,18-24,Female,Very satisfied,9,Support
+R0169,18-24,Prefer not to say,Very dissatisfied,0,Support
+R0170,45-54,Prefer not to say,Satisfied,8,Engineering
+R0171,35-44,Female,Neutral,5,HR
+R0172,18-24,Prefer not to say,Dissatisfied,4,Sales
+R0173,35-44,Prefer not to say,Very satisfied,10,Support
+R0174,25-34,Male,Very satisfied,9,Support
+R0175,45-54,Male,Dissatisfied,3,Support
+R0176,35-44,Female,Dissatisfied,3,Sales
+R0177,35-44,Male,Very satisfied,10,HR
+R0178,35-44,Female,Very satisfied,10,HR
+R0179,18-24,Male,Satisfied,8,Support
+R0180,25-34,Prefer not to say,Very dissatisfied,0,Support
+R0181,45-54,Male,Very satisfied,10,Sales
+R0182,55+,Female,Very dissatisfied,2,Support
+R0183,25-34,Male,Neutral,5,Engineering
+R0184,35-44,Male,Satisfied,7,Support
+R0185,35-44,Male,Very dissatisfied,0,Finance
+R0186,25-34,Prefer not to say,Neutral,5,Engineering
+R0187,25-34,Prefer not to say,Satisfied,7,Engineering
+R0188,25-34,Female,Satisfied,7,Support
+R0189,45-54,Prefer not to say,Satisfied,9,HR
+R0190,55+,Male,Neutral,6,Support
+R0191,35-44,Male,Dissatisfied,2,HR
+R0192,18-24,Male,Satisfied,7,Engineering
+R0193,18-24,Male,Very satisfied,10,Sales
+R0194,55+,Prefer not to say,Neutral,6,HR
+R0195,25-34,Prefer not to say,Satisfied,8,Support
+R0196,18-24,Male,Dissatisfied,3,Finance
+R0197,55+,Male,Satisfied,8,HR
+R0198,18-24,Prefer not to say,Very satisfied,10,HR
+R0199,35-44,Male,Very dissatisfied,1,Support
+R0200,18-24,Female,Satisfied,8,Support
+R0201,45-54,Female,Very satisfied,9,HR
+R0202,25-34,Female,Dissatisfied,3,Sales
+R0203,35-44,Prefer not to say,Very satisfied,10,HR
+R0204,45-54,Prefer not to say,Neutral,5,Finance
+R0205,18-24,Prefer not to say,Dissatisfied,2,Finance
+R0206,18-24,Male,Dissatisfied,2,HR
+R0207,55+,Prefer not to say,Satisfied,8,Engineering
+R0208,35-44,Prefer not to say,Very dissatisfied,1,Engineering
+R0209,18-24,Male,Neutral,4,Support
+R0210,55+,Prefer not to say,Satisfied,8,Finance
+R0211,18-24,Male,Satisfied,7,Support
+R0212,55+,Male,Satisfied,8,Finance
+R0213,45-54,Female,Dissatisfied,3,HR
+R0214,55+,Prefer not to say,Very dissatisfied,1,Engineering
+R0215,35-44,Male,Dissatisfied,4,Engineering
+R0216,45-54,Female,Neutral,6,Engineering
+R0217,25-34,Female,Satisfied,8,HR
+R0218,18-24,Female,Very dissatisfied,2,Support
+R0219,55+,Female,Satisfied,7,Engineering
+R0220,18-24,Male,Very satisfied,10,Engineering
+R0221,18-24,Female,Satisfied,7,Support
+R0222,25-34,Female,Neutral,6,Finance
+R0223,55+,Male,Neutral,5,Support
+R0224,55+,Male,Very satisfied,10,Finance
+R0225,18-24,Female,Satisfied,9,Engineering
+R0226,25-34,Female,Satisfied,8,HR
+R0227,35-44,Female,Very dissatisfied,0,Sales
+R0228,35-44,Prefer not to say,Very satisfied,10,HR
+R0229,35-44,Male,Neutral,4,Engineering
+R0230,45-54,Female,Neutral,6,Finance
+R0231,25-34,Prefer not to say,Satisfied,7,Sales
+R0232,25-34,Male,Neutral,6,Finance
+R0233,25-34,Male,Satisfied,8,Support
+R0234,45-54,Female,Dissatisfied,4,HR
+R0235,55+,Female,Dissatisfied,3,Sales
+R0236,55+,Female,Very satisfied,9,Support
+R0237,35-44,Female,Dissatisfied,4,Finance
+R0238,55+,Prefer not to say,Satisfied,7,Engineering
+R0239,25-34,Female,Very satisfied,10,Support
+R0240,18-24,Prefer not to say,Satisfied,7,Engineering
+R0241,18-24,Female,Satisfied,8,Finance
+R0242,55+,Female,Very satisfied,10,Engineering
+R0243,55+,Male,Very satisfied,10,Finance
+R0244,45-54,Female,Neutral,6,Engineering
+R0245,18-24,Male,Neutral,5,HR
+R0246,25-34,Male,Neutral,6,Engineering
+R0247,18-24,Male,Satisfied,7,Finance
+R0248,45-54,Prefer not to say,Neutral,4,Engineering
+R0249,18-24,Male,Very satisfied,9,Finance
+R0250,45-54,Prefer not to say,Neutral,6,HR
+R0251,25-34,Female,Dissatisfied,4,HR
+R0252,25-34,Male,Very dissatisfied,1,Sales
+R0253,35-44,Prefer not to say,Very satisfied,10,Sales
+R0254,45-54,Prefer not to say,Satisfied,7,Finance
+R0255,35-44,Male,Neutral,5,HR
+R0256,25-34,Female,Neutral,6,HR
+R0257,25-34,Male,Satisfied,8,Support
+R0258,25-34,Male,Satisfied,7,Sales
+R0259,55+,Prefer not to say,Very satisfied,9,HR
+R0260,55+,Male,Dissatisfied,2,Sales
+R0261,45-54,Male,Neutral,6,Finance
+R0262,45-54,Male,Very dissatisfied,0,HR
+R0263,35-44,Female,Dissatisfied,3,HR
+R0264,35-44,Female,Dissatisfied,3,Finance
+R0265,25-34,Male,Neutral,6,Finance
+R0266,18-24,Prefer not to say,Satisfied,7,Engineering
+R0267,18-24,Prefer not to say,Satisfied,7,Support
+R0268,18-24,Prefer not to say,Very dissatisfied,2,Support
+R0269,35-44,Prefer not to say,Dissatisfied,4,Finance
+R0270,55+,Male,Satisfied,8,Engineering
+R0271,55+,Male,Neutral,4,Sales
+R0272,35-44,Prefer not to say,Satisfied,7,Finance
+R0273,18-24,Female,Very satisfied,10,Sales
+R0274,25-34,Female,Very dissatisfied,1,Engineering
+R0275,55+,Female,Satisfied,7,Sales
+R0276,45-54,Prefer not to say,Satisfied,7,Sales
+R0277,35-44,Male,Neutral,6,Sales
+R0278,55+,Female,Neutral,5,Finance
+R0279,25-34,Male,Neutral,5,Engineering
+R0280,18-24,Female,Dissatisfied,3,Engineering
+R0281,55+,Female,Very dissatisfied,2,Finance
+R0282,55+,Prefer not to say,Satisfied,8,Engineering
+R0283,35-44,Female,Very satisfied,9,Engineering
+R0284,25-34,Female,Dissatisfied,4,Engineering
+R0285,35-44,Female,Very satisfied,10,Support
+R0286,25-34,Male,Dissatisfied,4,HR
+R0287,18-24,Female,Satisfied,8,HR
+R0288,18-24,Male,Satisfied,7,Sales
+R0289,18-24,Prefer not to say,Very satisfied,10,Finance
+R0290,18-24,Prefer not to say,Neutral,5,Finance
+R0291,18-24,Female,Very satisfied,10,Support
+R0292,18-24,Male,Neutral,6,Sales
+R0293,18-24,Female,Dissatisfied,3,HR
+R0294,45-54,Female,Satisfied,8,Engineering
+R0295,45-54,Prefer not to say,Neutral,4,Finance
+R0296,18-24,Female,Neutral,6,Finance
+R0297,45-54,Male,Dissatisfied,4,Sales
+R0298,45-54,Prefer not to say,Very satisfied,10,HR
+R0299,45-54,Male,Neutral,5,Engineering
+R0300,35-44,Female,Neutral,5,Finance
+R0301,35-44,Prefer not to say,Dissatisfied,4,Support
+R0302,45-54,Male,Dissatisfied,2,Sales
+R0303,35-44,Female,Neutral,6,Finance
+R0304,45-54,Female,Dissatisfied,3,HR
+R0305,18-24,Male,Very dissatisfied,1,HR
+R0306,25-34,Prefer not to say,Very satisfied,10,HR
+R0307,18-24,Male,Very satisfied,10,HR
+R0308,18-24,Prefer not to say,Very satisfied,10,Sales
+R0309,45-54,Male,Dissatisfied,3,Engineering
+R0310,18-24,Prefer not to say,Neutral,5,Finance
+R0311,18-24,Prefer not to say,Dissatisfied,4,Finance
+R0312,35-44,Female,Very satisfied,10,Sales
+R0313,35-44,Female,Neutral,6,HR
+R0314,55+,Prefer not to say,Very satisfied,9,Finance
+R0315,55+,Male,Neutral,5,HR
+R0316,35-44,Male,Neutral,5,Finance
+R0317,45-54,Prefer not to say,Neutral,6,HR
+R0318,18-24,Female,Neutral,5,Sales
+R0319,25-34,Prefer not to say,Satisfied,7,HR
+R0320,35-44,Female,Neutral,5,Sales
+R0321,55+,Male,Neutral,5,Engineering
+R0322,55+,Male,Dissatisfied,3,Finance
+R0323,35-44,Prefer not to say,Neutral,6,Sales
+R0324,25-34,Prefer not to say,Neutral,5,Support
+R0325,35-44,Prefer not to say,Neutral,6,Finance
+R0326,25-34,Female,Very satisfied,9,Finance
+R0327,45-54,Female,Neutral,5,Finance
+R0328,55+,Prefer not to say,Very satisfied,10,HR
+R0329,25-34,Female,Very satisfied,9,Sales
+R0330,35-44,Male,Satisfied,8,Finance
+R0331,18-24,Female,Very satisfied,10,Finance
+R0332,45-54,Female,Very satisfied,10,Support
+R0333,35-44,Female,Very satisfied,10,Finance
+R0334,55+,Male,Very satisfied,9,Engineering
+R0335,25-34,Female,Neutral,6,Engineering
+R0336,18-24,Male,Very satisfied,10,HR
+R0337,25-34,Female,Satisfied,8,Finance
+R0338,18-24,Male,Neutral,6,HR
+R0339,45-54,Female,Very dissatisfied,1,HR
+R0340,35-44,Male,Very satisfied,10,Engineering
+R0341,35-44,Male,Dissatisfied,2,Sales
+R0342,25-34,Male,Very dissatisfied,0,HR
+R0343,45-54,Prefer not to say,Dissatisfied,3,HR
+R0344,25-34,Male,Neutral,6,Engineering
+R0345,18-24,Male,Dissatisfied,4,HR
+R0346,55+,Male,Neutral,6,Finance
+R0347,25-34,Female,Very dissatisfied,2,Engineering
+R0348,45-54,Prefer not to say,Neutral,6,Sales
+R0349,55+,Prefer not to say,Satisfied,8,Support
+R0350,18-24,Female,Satisfied,7,HR
+R0351,18-24,Prefer not to say,Neutral,6,Finance
+R0352,45-54,Female,Very satisfied,10,Support
+R0353,55+,Prefer not to say,Satisfied,8,Engineering
+R0354,25-34,Prefer not to say,Dissatisfied,2,Engineering
+R0355,55+,Male,Neutral,5,Engineering
+R0356,25-34,Female,Neutral,6,Finance
+R0357,45-54,Prefer not to say,Dissatisfied,3,Finance
+R0358,35-44,Female,Very satisfied,10,Sales
+R0359,35-44,Prefer not to say,Satisfied,7,Engineering
+R0360,35-44,Male,Very dissatisfied,0,HR
+R0361,35-44,Prefer not to say,Neutral,5,HR
+R0362,18-24,Prefer not to say,Very satisfied,10,Support
+R0363,35-44,Male,Satisfied,8,Finance
+R0364,55+,Female,Very satisfied,10,HR
+R0365,45-54,Prefer not to say,Very satisfied,10,HR
+R0366,35-44,Female,Neutral,5,Support
+R0367,45-54,Male,Very satisfied,10,Finance
+R0368,55+,Prefer not to say,Very dissatisfied,1,Finance
+R0369,55+,Prefer not to say,Dissatisfied,3,HR
+R0370,55+,Prefer not to say,Satisfied,7,Engineering
+R0371,45-54,Prefer not to say,Neutral,6,Sales
+R0372,18-24,Female,Neutral,6,Engineering
+R0373,35-44,Prefer not to say,Dissatisfied,3,HR
+R0374,35-44,Prefer not to say,Very dissatisfied,1,Finance
+R0375,18-24,Female,Neutral,6,Sales
+R0376,25-34,Female,Neutral,6,Engineering
+R0377,18-24,Prefer not to say,Satisfied,7,Support
+R0378,45-54,Female,Neutral,5,Sales
+R0379,45-54,Male,Dissatisfied,3,Finance
+R0380,55+,Female,Neutral,5,HR
+R0381,55+,Male,Neutral,5,Engineering
+R0382,45-54,Female,Very satisfied,10,Finance
+R0383,35-44,Male,Neutral,6,Support
+R0384,55+,Male,Dissatisfied,2,Sales
+R0385,18-24,Female,Neutral,5,Engineering
+R0386,55+,Female,Satisfied,8,Sales
+R0387,18-24,Female,Satisfied,8,Sales
+R0388,35-44,Male,Neutral,5,Sales
+R0389,45-54,Prefer not to say,Very satisfied,10,Finance
+R0390,55+,Male,Dissatisfied,2,Finance
+R0391,25-34,Male,Very satisfied,10,Sales
+R0392,18-24,Prefer not to say,Neutral,5,Engineering
+R0393,55+,Prefer not to say,Satisfied,8,HR
+R0394,18-24,Female,Very satisfied,10,Support
+R0395,25-34,Female,Neutral,5,Finance
+R0396,55+,Prefer not to say,Dissatisfied,3,Sales
+R0397,18-24,Male,Dissatisfied,4,HR
+R0398,45-54,Prefer not to say,Very satisfied,10,Engineering
+R0399,55+,Female,Neutral,6,Finance
+R0400,35-44,Male,Neutral,6,Engineering
