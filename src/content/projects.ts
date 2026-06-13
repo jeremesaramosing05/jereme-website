@@ -26,6 +26,27 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "cost-estimate-app",
+    title: "Cost & Estimate App",
+    year: "2026",
+    role: "Full-Stack Development",
+    summary:
+      "A construction cost-and-estimate web app for the Philippines, built for both civil engineers and ordinary people. Enter simple measurements and it computes materials, labor, and a full contract price — then exports a client-ready proposal PDF. Regional prices, material brands and rebar grades, all editable; runs offline with no accounts.",
+    tags: ["Construction Tech", "React", "TypeScript", "PWA"],
+    hue: 24,
+    cover: "/work/cost-estimate-app.svg",
+    featured: true,
+    caseStudy: {
+      problem:
+        "Construction estimating is locked behind expensive, engineer-only software, and nothing localizes to Philippine practice. An ordinary person planning a house can't answer a basic question — how many bags of cement, how many blocks, how much will it cost? The goal was one friendly app that serves both a homeowner and a civil engineer, grounded in the NSCP, Fajardo's estimating methods, and real local prices.",
+      process:
+        "I built a pure TypeScript calculation engine (Fajardo coefficients, every value unit-tested) and layered a friendly UI on top: ten residential estimators, a no-project Quick Estimate, and a detailed takeoff workspace. Prices are region-aware (Luzon/NCR, Visayas, Mindanao) on a delivered-retail basis, with cement brands and rebar Grade 40/60, and labor anchored to the regional minimum wage. A finance layer adds labor, contingency, contractor markup and VAT to reach a total contract price, and a pdfmake exporter produces a branded proposal. Everything persists on-device (IndexedDB), works offline, and installs as a PWA.",
+      result:
+        "A genuinely usable estimator that takes a measurement and returns what to buy and what it costs — whole purchasable units, a consolidated bill of materials, and a one-tap client proposal PDF. The live demo is the real app running in your browser.",
+    },
+    link: { label: "Open the live app", href: "https://cost-estimate-demo.vercel.app" },
+  },
+  {
     slug: "data-analyst-dashboard",
     title: "Data Analyst Dashboard",
     year: "2026",
