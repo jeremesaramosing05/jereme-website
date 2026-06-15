@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Reader — Interactive Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F2E9; --surface:#FCF8F1; --ink:#26241F; --ink-soft:#6F685B;
+    --accent:#4F5D95; --accent-soft:#E7E9F4; --line:#E5DCCC; --cream:#F3ECDD;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:
+      radial-gradient(900px 520px at 50% -8%, #EFE7D8 0%, rgba(239,231,216,0) 60%), var(--paper);
+    color:var(--ink);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:26px 16px;gap:16px;min-height:100%;}
+  .cap{display:flex;align-items:center;gap:10px;color:var(--ink-soft);font-size:13px;}
+  .cap .mark{width:26px;height:26px;border-radius:8px;background:var(--accent);color:#fff;
+    display:grid;place-items:center;font-family:'Fraunces',serif;font-weight:600;font-size:15px;}
+  .cap b{font-family:'Fraunces',serif;color:var(--ink);font-weight:600;font-size:15px;}
+
+  .phone{width:330px;height:680px;background:#141210;border-radius:44px;padding:12px;
+    box-shadow:0 40px 80px -30px rgba(40,30,15,.5), 0 0 0 2px rgba(0,0,0,.05);}
+  .screen{width:100%;height:100%;border-radius:33px;overflow:hidden;position:relative;
+    background:var(--paper);display:flex;flex-direction:column;}
+  .statusbar{height:32px;display:flex;align-items:center;justify-content:space-between;
+    padding:0 20px;font-size:12px;color:var(--ink-soft);flex:0 0 auto;}
+  .statusbar .dots{display:flex;gap:5px}
+  .statusbar .dots i{width:6px;height:6px;border-radius:50%;background:var(--ink-soft);opacity:.5;display:block}
+  .view{flex:1;overflow-y:auto}
+  .view::-webkit-scrollbar{display:none}
+
+  .lib-head{padding:12px 20px 4px}
+  .lib-head h2{font-family:'Fraunces',serif;font-weight:600;font-size:27px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:12px 20px 26px}
+  .book{cursor:pointer}
+  .cover{aspect-ratio:.66;border-radius:12px;padding:14px;display:flex;flex-direction:column;
+    color:var(--cream);box-shadow:0 12px 20px -10px rgba(0,0,0,.4);position:relative;overflow:hidden;
+    transition:transform .18s ease, box-shadow .18s ease}
+  .book:hover .cover{transform:translateY(-4px);box-shadow:0 20px 28px -12px rgba(0,0,0,.45)}
+  .cover .fmt{font-size:9px;font-weight:700;letter-spacing:.2em;opacity:.6}
+  .cover .ct{font-family:'Fraunces',serif;font-weight:600;font-size:16px;line-height:1.15;margin-top:auto}
+  .cover .rule{width:22px;height:2px;background:rgba(243,236,221,.45);margin:8px 0 6px}
+  .cover .ca{font-family:'Fraunces',serif;font-style:italic;font-size:11px;opacity:.8}
+  .cover .prog{position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(0,0,0,.25)}
+  .cover .prog>span{display:block;height:100%;background:var(--accent)}
+  .book .b-title{font-family:'Fraunces',serif;font-weight:600;font-size:13px;margin-top:9px;line-height:1.2}
+  .book .b-author{font-size:11px;color:var(--ink-soft);margin-top:2px}
+
+  #reader{display:none;flex-direction:column;height:100%}
+  .r-bar{height:50px;flex:0 0 auto;display:flex;align-items:center;gap:4px;padding:0 8px}
+  .r-bar .ic{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;cursor:pointer;
+    color:inherit;font-size:17px}
+  .r-bar .ic:hover{background:rgba(125,125,125,.12)}
+  .r-bar .r-title{font-family:'Fraunces',serif;font-weight:600;font-size:15px;flex:1;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .r-body{flex:1;overflow-y:auto;padding:6px 24px 36px}
+  .r-body::-webkit-scrollbar{display:none}
+  .r-body h3{font-family:'Fraunces',serif;font-weight:600;font-size:28px;margin:12px 0 20px}
+  .r-body p{font-family:'Lora',serif;font-size:17px;line-height:1.62;margin-bottom:16px}
+  .pdfpage{background:#fff;color:#222;border-radius:6px;box-shadow:0 8px 24px -10px rgba(0,0,0,.3);
+    padding:30px 22px;min-height:340px;margin-top:6px}
+  .pdfpage h3{font-family:'Fraunces',serif;font-size:22px;margin-bottom:12px}
+  .pdfpage p{font-family:'Lora',serif;font-size:14px;color:#444;line-height:1.5}
+  .r-controls{flex:0 0 auto;border-top:1px solid rgba(125,125,125,.18);padding:11px 16px 14px;
+    display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .themeset{display:flex;gap:7px}
+  .swatch{width:32px;height:32px;border-radius:9px;cursor:pointer;border:2px solid transparent;
+    display:grid;place-items:center;font-family:'Fraunces',serif;font-size:12px;font-weight:600}
+  .swatch.on{border-color:var(--accent)}
+  .fontset{display:flex;align-items:center;gap:4px}
+  .fontset button{width:32px;height:32px;border-radius:9px;border:1px solid rgba(125,125,125,.3);
+    background:transparent;color:inherit;cursor:pointer;font-size:14px;font-family:'Fraunces',serif}
+  .toc{position:absolute;inset:0;background:rgba(20,16,10,.32);display:none;align-items:flex-end;z-index:5}
+  .toc.show{display:flex}
+  .toc-card{background:var(--surface);width:100%;border-radius:22px 22px 0 0;padding:8px 0 16px;max-height:70%;overflow:auto}
+  .toc-card .h{width:36px;height:4px;border-radius:2px;background:var(--line);margin:8px auto 10px}
+  .toc-card .ti{padding:12px 22px;font-family:'Fraunces',serif;font-size:15px;cursor:pointer;display:flex;gap:14px;color:var(--ink)}
+  .toc-card .ti:hover{background:var(--accent-soft)}
+  .toc-card .ti span{color:var(--ink-soft);font-size:13px;width:14px}
+  .hint{color:var(--ink-soft);font-size:12px}
+</style>
+</head>
+<body>
+  <div class="cap"><span class="mark">R</span><b>Reader</b><span>&middot; interactive demo</span></div>
+
+  <div class="phone">
+    <div class="screen">
+      <div class="statusbar"><span id="clock">9:41</span><span class="dots"><i></i><i></i><i></i></span></div>
+      <div class="view" id="library">
+        <div class="lib-head"><h2>Library</h2></div>
+        <div class="grid" id="grid"></div>
+      </div>
+      <div id="reader">
+        <div class="r-bar" id="rbar">
+          <div class="ic" onclick="showLibrary()">&larr;</div>
+          <div class="r-title" id="rtitle">Title</div>
+          <div class="ic" onclick="toggleToc()">&#9776;</div>
+          <div class="ic" onclick="cycleTheme()">Aa</div>
+        </div>
+        <div class="r-body" id="rbody"></div>
+        <div class="r-controls">
+          <div class="themeset" id="themeset"></div>
+          <div class="fontset">
+            <button onclick="bump(-1)">A&minus;</button>
+            <button onclick="bump(1)">A+</button>
+          </div>
+        </div>
+        <div class="toc" id="toc" onclick="if(event.target.id==='toc')toggleToc()">
+          <div class="toc-card"><div class="h"></div><div id="toclist"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="hint">Tap a book &middot; switch Light / Sepia / Dark &middot; resize the text</p>
+
+<script>
+  const palette={slate:'#3E4C59',brick:'#7A4E48',forest:'#45584C',plum:'#574B6B',teal:'#2F4858',bronze:'#856A3D'};
+  const themes={light:{bg:'#FBF6EC',fg:'#2B2722'},sepia:{bg:'#F3E7CE',fg:'#54473A'},dark:{bg:'#15130F',fg:'#D8D2C6'}};
+  const books=[
+    {title:'The Sample EPUB',author:'Jereme',fmt:'EPUB',color:'plum',progress:.55,type:'flow',
+      chapters:[{t:'Chapter One',p:['It was a bright cold day in April, and the clocks were striking thirteen.',
+        'This chapter is rendered from real EPUB HTML by the reader’s reflowable engine, styled with your chosen font and theme.']},
+        {t:'Chapter Two',p:['You moved to the next chapter — navigation works.','Close the book and reopen it; the reader brings you right back to where you stopped.']}]},
+    {title:'Field Notes',author:'A. Mercer',fmt:'PDF',color:'brick',progress:.3,type:'pdf',
+      pages:[{t:'Field Notes — p.1',p:'A fixed-layout PDF, rendered page by page with pinch-zoom and a live page counter.'},
+        {t:'Field Notes — p.2',p:'Search inside the document and bookmark any page to return later.'},
+        {t:'Field Notes — p.3',p:'Close and reopen — the reader resumes on the page you left.'}]},
+    {title:'On Quiet Mornings',author:'L. Hale',fmt:'TEXT',color:'slate',progress:0,type:'flow',
+      chapters:[{t:'On Quiet Mornings',p:['Plain text and Markdown flow into the same calm reading surface.','Adjust the type to taste; the words rewrap to fit, every time.']}]},
+    {title:'The Manuscript',author:'Unknown',fmt:'WORD',color:'forest',progress:.12,type:'flow',
+      chapters:[{t:'The Manuscript',p:['A Word .docx is converted into clean, reflowable chapters.','Headings become a table of contents so you can jump anywhere in seconds.']},
+        {t:'Revisions',p:['The second section, ready for your notes and highlights.']}]}
+  ];
+  let current=null,themeKey='light',fontScale=1;
+  function buildLibrary(){const g=document.getElementById('grid');g.innerHTML='';
+    books.forEach((b,i)=>{const base=palette[b.color];const el=document.createElement('div');el.className='book';el.onclick=()=>openBook(i);
+      el.innerHTML=`<div class="cover" style="background:linear-gradient(150deg,${base},${shade(base,-22)})">
+        <div class="fmt">${b.fmt}</div><div class="ct">${b.title}</div><div class="rule"></div><div class="ca">${b.author}</div>
+        ${b.progress>0?`<div class="prog"><span style="width:${Math.round(b.progress*100)}%"></span></div>`:''}</div>
+        <div class="b-title">${b.title}</div><div class="b-author">${b.author}</div>`;g.appendChild(el);});}
+  function openBook(i){current=i;const b=books[i];document.getElementById('library').style.display='none';
+    document.getElementById('reader').style.display='flex';document.getElementById('rtitle').textContent=b.title;buildThemeSwatches();renderReader();}
+  function showLibrary(){document.getElementById('reader').style.display='none';document.getElementById('library').style.display='block';
+    document.getElementById('toc').classList.remove('show');}
+  function renderReader(){const b=books[current],th=themes[themeKey],reader=document.getElementById('reader');
+    reader.style.background=th.bg;reader.style.color=th.fg;document.getElementById('rbar').style.color=th.fg;
+    const body=document.getElementById('rbody');body.innerHTML='';
+    if(b.type==='pdf'){b.pages.forEach(pg=>{body.innerHTML+=`<div class="pdfpage"><h3>${pg.t}</h3><p>${pg.p}</p></div>`;});}
+    else{const ch=b.chapters[0];let html=`<h3 style="font-size:${28*fontScale}px">${ch.t}</h3>`;
+      ch.p.forEach(p=>html+=`<p style="font-size:${17*fontScale}px;color:${th.fg}">${p}</p>`);body.innerHTML=html;}
+    [...document.querySelectorAll('.swatch')].forEach(s=>s.classList.toggle('on',s.dataset.k===themeKey));}
+  function buildThemeSwatches(){const set=document.getElementById('themeset');set.innerHTML='';
+    Object.entries(themes).forEach(([k,t])=>{const s=document.createElement('div');s.className='swatch'+(k===themeKey?' on':'');
+      s.dataset.k=k;s.style.background=t.bg;s.style.color=t.fg;s.textContent='Aa';s.onclick=()=>{themeKey=k;renderReader();};set.appendChild(s);});}
+  function cycleTheme(){const ks=Object.keys(themes);themeKey=ks[(ks.indexOf(themeKey)+1)%ks.length];renderReader();}
+  function bump(d){fontScale=Math.min(1.5,Math.max(.8,fontScale+d*0.1));renderReader();}
+  function toggleToc(){const b=books[current],toc=document.getElementById('toc'),list=document.getElementById('toclist');
+    const items=b.type==='pdf'?b.pages.map(p=>p.t):b.chapters.map(c=>c.t);
+    list.innerHTML=items.map((t,i)=>`<div class="ti" onclick="toggleToc()"><span>${i+1}</span>${t}</div>`).join('');toc.classList.toggle('show');}
+  function shade(hex,p){const n=parseInt(hex.slice(1),16);let r=(n>>16)+p,g=((n>>8)&255)+p,b=(n&255)+p;
+    r=Math.max(0,Math.min(255,r));g=Math.max(0,Math.min(255,g));b=Math.max(0,Math.min(255,b));
+    return '#'+(r<<16|g<<8|b).toString(16).padStart(6,'0');}
+  function tick(){document.getElementById('clock').textContent=new Date().toLocaleTimeString([],{hour:'numeric',minute:'2-digit'});}
+  buildLibrary();tick();setInterval(tick,30000);
+</script>
+</body>
+</html>

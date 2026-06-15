@@ -15,7 +15,7 @@ export type Project = {
   cover?: string;
   featured: boolean;
   /** Renders a live interactive demo on the case-study page when set */
-  demo?: "pos" | "dashboard";
+  demo?: "pos" | "dashboard" | "reader";
   caseStudy: {
     problem: string;
     process: string;
@@ -89,6 +89,27 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "reader-app",
+    title: "Reader — eBook App",
+    year: "2026",
+    role: "Mobile App Development",
+    summary:
+      "A warm, offline reading app for Android that opens any book you own — EPUB, PDF, Word, and plain text — in one elegant library. Adjustable themes and typography, bookmarks, highlights, table of contents, and in-book search, all on-device with no accounts.",
+    tags: ["Flutter", "Android", "Mobile App", "Reading"],
+    hue: 232,
+    cover: "/work/reader-app.svg",
+    featured: true,
+    demo: "reader",
+    caseStudy: {
+      problem:
+        "Your books are scattered across formats and apps — an EPUB here, a PDF lecture there, a Word manuscript, a plain-text draft — and most readers lock you into a single store or a single file type. I wanted one calm, beautiful place to read all of them, that works on a phone, offline, and never asks you to sign in.",
+      process:
+        "I built it with Flutter for Android, around two rendering engines behind a shared interface: a reflowable engine for EPUB, Word, and text that reflows to your font, size, spacing, and Light/Sepia/Dark theme, and a fixed-layout engine for PDFs with page tracking and search. Word files are converted to clean chapters, headings become a table of contents, and a tap-to-highlight layer adds bookmarks and notes. The whole reading surface is set in a literary serif with the fonts bundled in, so it renders identically with no network. Reading position is saved per book, so every title resumes exactly where you left off.",
+      result:
+        "One reader for everything you read — import a file and it lands in a tidy shelf with a generated cover, opens in a distraction-free page, and remembers where you were. The interactive demo below is a faithful preview of the app: browse the library, open a book, switch themes, and resize the type right in your browser.",
+    },
+  },
+  {
     slug: "motion-graphics-reel",
     title: "Motion Graphics Reel",
     year: "2026",
@@ -124,44 +145,6 @@ export const projects: Project[] = [
         "Designed a calm, generous layout with a clear typographic rhythm, paired with plain-language lessons and visual examples.",
       result:
         "An ebook learners actually enjoy opening — approachable, scannable, and easy to follow.",
-    },
-  },
-  {
-    slug: "vhs-timeline",
-    title: "VHS Timeline",
-    year: "2026",
-    role: "Creative Development",
-    summary:
-      "A nostalgic, retro-styled interactive timeline experience inspired by VHS-era aesthetics.",
-    tags: ["Creative Coding", "Interaction", "Web"],
-    hue: 330,
-    featured: false,
-    caseStudy: {
-      problem:
-        "Timelines are usually flat lists. This experiment asked: what if browsing history felt like rewinding a tape?",
-      process:
-        "Layered scanline textures, tracking glitches, and tactile scrubbing interactions on top of a clean data-driven timeline structure.",
-      result:
-        "A memorable interactive piece that shows how far a strong aesthetic concept can elevate a simple component.",
-    },
-  },
-  {
-    slug: "comment-explosion",
-    title: "Comment Explosion",
-    year: "2026",
-    role: "Creative Development",
-    summary:
-      "A playful web experiment that visualizes live comments as bursts of kinetic typography.",
-    tags: ["Creative Coding", "Animation", "Web"],
-    hue: 262,
-    featured: false,
-    caseStudy: {
-      problem:
-        "Comment sections are visually dead. The idea: make audience reactions feel like fireworks.",
-      process:
-        "Prototyped particle-style text animation, tuned physics and easing until the motion felt celebratory rather than chaotic.",
-      result:
-        "A fun, shareable interaction concept ready to drop into streams, events, or landing pages.",
     },
   },
   {

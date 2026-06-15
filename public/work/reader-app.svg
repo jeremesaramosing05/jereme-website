@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" role="img" aria-label="Reader app cover — a warm ebook reader on Android showing a chapter of a book, with EPUB, PDF, Word and text formats">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#faf6f0"/>
+      <stop offset="1" stop-color="#f1e7da"/>
+    </linearGradient>
+    <linearGradient id="coverGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#574b6b"/>
+      <stop offset="1" stop-color="#3a3149"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+
+  <!-- left: brand + tagline + format pills -->
+  <g transform="translate(96,150)">
+    <rect width="96" height="96" rx="24" fill="#4f5d95"/>
+    <text x="48" y="68" font-family="Georgia, 'Times New Roman', serif" font-size="60" font-weight="700" fill="#ffffff" text-anchor="middle">R</text>
+    <text x="120" y="44" font-family="Georgia, 'Times New Roman', serif" font-size="58" font-weight="700" fill="#26241f">Reader</text>
+    <text x="122" y="88" font-family="Segoe UI, Arial, sans-serif" font-size="27" fill="#6f685b">Read any book, beautifully.</text>
+  </g>
+  <g transform="translate(96,316)" font-family="Segoe UI, Arial, sans-serif">
+    <text x="0" y="0" font-size="25" fill="#6f685b">A warm, offline reader for every format you own.</text>
+    <g transform="translate(0,42)" font-size="22" font-weight="600">
+      <rect x="0" y="-26" width="92" height="40" rx="20" fill="#ffffff" stroke="#e4dccb"/><text x="46" y="2" fill="#3c4490" text-anchor="middle">EPUB</text>
+      <rect x="104" y="-26" width="78" height="40" rx="20" fill="#ffffff" stroke="#e4dccb"/><text x="143" y="2" fill="#3c4490" text-anchor="middle">PDF</text>
+      <rect x="194" y="-26" width="98" height="40" rx="20" fill="#ffffff" stroke="#e4dccb"/><text x="243" y="2" fill="#3c4490" text-anchor="middle">Word</text>
+      <rect x="304" y="-26" width="84" height="40" rx="20" fill="#ffffff" stroke="#e4dccb"/><text x="346" y="2" fill="#3c4490" text-anchor="middle">Text</text>
+    </g>
+    <g transform="translate(0,118)" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#6f685b">
+      <circle cx="9" cy="-6" r="4" fill="#4f5d95"/><text x="26" y="0">Light · Sepia · Dark, with adjustable type</text>
+      <circle cx="9" cy="30" r="4" fill="#4f5d95"/><text x="26" y="36">Bookmarks, highlights, contents &amp; search</text>
+    </g>
+  </g>
+
+  <!-- right: stylized phone showing a chapter -->
+  <g transform="translate(792,86)">
+    <rect width="332" height="548" rx="46" fill="#141210"/>
+    <rect x="12" y="12" width="308" height="524" rx="34" fill="#fbf6ec"/>
+    <!-- status bar -->
+    <text x="40" y="52" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#9b9484">9:41</text>
+    <circle cx="276" cy="46" r="3.5" fill="#bcb4a3"/><circle cx="288" cy="46" r="3.5" fill="#bcb4a3"/><circle cx="300" cy="46" r="3.5" fill="#bcb4a3"/>
+    <!-- reader app bar -->
+    <text x="40" y="98" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#2b2722">&#8592;</text>
+    <text x="74" y="98" font-family="Georgia, 'Times New Roman', serif" font-size="20" font-weight="700" fill="#2b2722">The Sample EPUB</text>
+    <text x="262" y="98" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#2b2722">&#9776;</text>
+    <text x="292" y="99" font-family="Georgia, serif" font-size="19" font-weight="700" fill="#2b2722">Aa</text>
+    <!-- chapter -->
+    <text x="40" y="168" font-family="Georgia, 'Times New Roman', serif" font-size="40" font-weight="700" fill="#2b2722">Chapter One</text>
+    <g font-family="Georgia, 'Times New Roman', serif" font-size="20" fill="#2b2722">
+      <text x="40" y="226">It was a bright cold day in</text>
+      <text x="40" y="258">April, and the clocks were</text>
+      <text x="40" y="290">striking thirteen.</text>
+      <text x="40" y="344">Rendered by the reader's</text>
+      <text x="40" y="376">reflowable engine, in your</text>
+      <text x="40" y="408">chosen font and theme.</text>
+    </g>
+  </g>
+
+  <!-- peeking book cover -->
+  <g transform="translate(720,392) rotate(-10)">
+    <rect width="150" height="226" rx="14" fill="url(#coverGrad)"/>
+    <text x="18" y="34" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="2" fill="#f3ecdd" opacity="0.65">EPUB</text>
+    <text x="18" y="170" font-family="Georgia, serif" font-size="19" font-weight="700" fill="#f3ecdd">The Sample</text>
+    <text x="18" y="192" font-family="Georgia, serif" font-size="19" font-weight="700" fill="#f3ecdd">EPUB</text>
+    <rect x="18" y="202" width="22" height="2" fill="#f3ecdd" opacity="0.5"/>
+    <text x="18" y="220" font-family="Georgia, serif" font-style="italic" font-size="12" fill="#f3ecdd" opacity="0.8">Jereme</text>
+  </g>
+</svg>
