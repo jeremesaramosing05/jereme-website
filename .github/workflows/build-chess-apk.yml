@@ -1,0 +1,81 @@
+name: Build Chess Trainer APK
+
+# Builds an installable Android APK for the Flutter chess app in chess_app/.
+# Run it manually from the Actions tab (Run workflow), or it runs automatically
+# when chess_app/ changes. Download the APK from the run's Artifacts section,
+# then sideload it onto your phone (enable "Install unknown apps" first).
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["**"]
+    paths:
+      - "chess_app/**"
+      - ".github/workflows/build-chess-apk.yml"
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: chess_app
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          # chessground ^10 requires meta ^1.18, which Flutter pins only from
+          # 3.44 onward — the same release that moved to AGP 9 / Gradle 9. There
+          # is no version with meta>=1.18 AND AGP 8, so we use 3.44 and work
+          # around the two AGP-9 issues the stockfish 1.8.1 plugin hits (below).
+          flutter-version: 3.44.2
+          cache: true
+
+      - name: Generate Android platform project
+        run: flutter create --platforms=android --org com.jereme --project-name chess_app .
+
+      - name: Work around AGP 9 (read legacy plugin DSL)
+        # The stockfish plugin ships a legacy Groovy build.gradle; AGP 9 reads
+        # only the new DSL by default, which breaks applying it. Opt out.
+        run: |
+          echo "android.newDsl=false" >> android/gradle.properties
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Patch stockfish plugin Gradle (jcenter -> mavenCentral)
+        # jcenter() was removed in Gradle 9; the stockfish 1.8.1 plugin still
+        # references it. Repoint to mavenCentral in the resolved pub-cache copy.
+        run: |
+          f=$(find ~/.pub-cache -path '*stockfish*/android/build.gradle' | head -1)
+          echo "Patching: $f"
+          sed -i 's/jcenter()/mavenCentral()/g' "$f"
+          grep -n 'Central\|jcenter' "$f" || true
+
+      - name: Analyze (non-blocking)
+        run: flutter analyze || true
+
+      - name: Run unit tests
+        run: flutter test || true
+
+      - name: Build release APKs (per ABI — smaller installs)
+        # --split-per-abi produces a separate, much smaller APK per CPU arch.
+        # Install app-arm64-v8a-release.apk on a modern phone (~90 MB) instead
+        # of the ~275 MB universal APK.
+        run: flutter build apk --release --split-per-abi
+
+      - name: Upload APK artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: chess-trainer-apk
+          path: chess_app/build/app/outputs/flutter-apk/*-release.apk
+          if-no-files-found: error

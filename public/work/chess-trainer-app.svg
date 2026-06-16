@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" role="img" aria-label="Chess Trainer app cover — an offline coaching chess app showing a board with the five best moves and their evaluations">
+  <defs>
+    <linearGradient id="cbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f1417"/>
+      <stop offset="1" stop-color="#161d22"/>
+    </linearGradient>
+    <linearGradient id="cpanel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a2228"/>
+      <stop offset="1" stop-color="#141a1f"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#cbg)"/>
+
+  <!-- left: brand + tagline + tags -->
+  <g transform="translate(96,140)">
+    <rect width="96" height="96" rx="24" fill="#1BBF9E"/>
+    <text x="48" y="70" font-family="Georgia, 'Times New Roman', serif" font-size="58" font-weight="700" fill="#0f1417" text-anchor="middle">&#9822;</text>
+    <text x="120" y="40" font-family="Georgia, 'Times New Roman', serif" font-size="52" font-weight="700" fill="#eef3f2">Chess Trainer</text>
+    <text x="122" y="80" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="#8aa0a8">Train like a master — offline.</text>
+  </g>
+  <g transform="translate(96,300)" font-family="Segoe UI, Arial, sans-serif">
+    <text x="0" y="0" font-size="24" fill="#9fb3ba">The five best moves, with evaluations and a</text>
+    <text x="0" y="32" font-size="24" fill="#9fb3ba">coach&#8217;s note on the idea behind each one.</text>
+    <g transform="translate(0,78)" font-size="21" font-weight="600">
+      <rect x="0" y="-26" width="110" height="40" rx="20" fill="#11181c" stroke="#2a343a"/><text x="55" y="2" fill="#1BBF9E" text-anchor="middle">Flutter</text>
+      <rect x="122" y="-26" width="130" height="40" rx="20" fill="#11181c" stroke="#2a343a"/><text x="187" y="2" fill="#3B97D3" text-anchor="middle">Stockfish</text>
+      <rect x="264" y="-26" width="142" height="40" rx="20" fill="#11181c" stroke="#2a343a"/><text x="335" y="2" fill="#7E8CE0" text-anchor="middle">Android · iOS</text>
+    </g>
+    <g transform="translate(0,150)" font-size="20" fill="#9fb3ba">
+      <circle cx="9" cy="-6" r="4" fill="#1BBF9E"/><text x="26" y="0">Play vs engine, tactics, coach &amp; student</text>
+      <circle cx="9" cy="30" r="4" fill="#1BBF9E"/><text x="26" y="36">Fully on-device — no internet required</text>
+    </g>
+  </g>
+
+  <!-- right: board with candidate arrows -->
+  <g transform="translate(706,96)">
+    <rect x="-16" y="-16" width="360" height="360" rx="20" fill="url(#cpanel)" stroke="#2a343a"/>
+    <!-- 8x8 board (40px squares) -->
+    <g>
+      <!-- generate rows -->
+      <g>
+        <!-- row backgrounds via two rects pattern is verbose; draw squares -->
+      </g>
+    </g>
+    <g shape-rendering="crispEdges">
+      <!-- rank 8..1, file a..h; light #edd6b0 dark #b58863 -->
+      <g>
+        <!-- We tile programmatically-looking squares -->
+      </g>
+    </g>
+    <!-- simple 8x8 using nested pattern -->
+    <defs>
+      <pattern id="lightsq" width="80" height="80" patternUnits="userSpaceOnUse">
+        <rect width="40" height="40" fill="#edd6b0"/>
+        <rect x="40" y="40" width="40" height="40" fill="#edd6b0"/>
+        <rect x="40" y="0" width="40" height="40" fill="#b58863"/>
+        <rect x="0" y="40" width="40" height="40" fill="#b58863"/>
+      </pattern>
+    </defs>
+    <rect x="0" y="0" width="320" height="320" fill="url(#lightsq)"/>
+    <rect x="0" y="0" width="320" height="320" fill="none" stroke="#2a343a" stroke-width="2"/>
+
+    <!-- candidate arrows (e4 #1 teal, Nf3 #2 blue, d4 #3 indigo) -->
+    <!-- squares: a8 at (0,0); file f -> x=f*40+20; rank r(1..8) -> y=(8-r)*40+20 -->
+    <!-- e2->e4 : e=4 -> x=180; e2 y=(8-2)*40+20=260 ; e4 y=(8-4)*40+20=180 -->
+    <g stroke-linecap="round" fill="none">
+      <line x1="180" y1="260" x2="180" y2="180" stroke="#1BBF9E" stroke-width="7" opacity="0.95"/>
+      <polygon points="180,168 173,184 187,184" fill="#1BBF9E" opacity="0.95"/>
+      <!-- g1->f3 : g=6 x=260 y1=(8-1)*40+20=300 ; f3 f=5 x=220 y=(8-3)*40+20=220 -->
+      <line x1="300" y1="300" x2="222" y2="222" stroke="#3B97D3" stroke-width="5" opacity="0.6"/>
+      <polygon points="214,214 226,220 220,232" fill="#3B97D3" opacity="0.6"/>
+      <!-- d2->d4 : d=3 x=140 ; d2 y=260 d4 y=180 -->
+      <line x1="140" y1="260" x2="140" y2="184" stroke="#7E8CE0" stroke-width="5" opacity="0.55"/>
+      <polygon points="140,172 133,188 147,188" fill="#7E8CE0" opacity="0.55"/>
+    </g>
+  </g>
+
+  <!-- candidate cards -->
+  <g transform="translate(706,470)" font-family="Segoe UI, Arial, sans-serif">
+    <g>
+      <rect x="0" y="0" width="478" height="46" rx="12" fill="#11181c" stroke="#1BBF9E" stroke-opacity="0.5"/>
+      <circle cx="26" cy="23" r="13" fill="#1BBF9E" fill-opacity="0.2" stroke="#1BBF9E"/>
+      <text x="26" y="29" font-size="16" font-weight="700" fill="#1BBF9E" text-anchor="middle">1</text>
+      <text x="52" y="29" font-size="20" font-weight="700" fill="#eef3f2">e4</text>
+      <rect x="92" y="11" width="56" height="24" rx="6" fill="#1BBF9E" fill-opacity="0.12"/>
+      <text x="120" y="28" font-size="13" font-weight="600" fill="#1BBF9E" text-anchor="middle">Book</text>
+      <text x="170" y="29" font-size="14" fill="#9fb3ba">Claims the center — the engine&#8217;s top choice.</text>
+      <rect x="426" y="11" width="44" height="24" rx="6" fill="#eef3f2"/>
+      <text x="448" y="28" font-size="14" font-weight="700" fill="#11181c" text-anchor="middle">+0.3</text>
+    </g>
+    <g transform="translate(0,56)">
+      <rect x="0" y="0" width="478" height="40" rx="12" fill="#11181c" stroke="#2a343a"/>
+      <circle cx="26" cy="20" r="12" fill="#3B97D3" fill-opacity="0.2" stroke="#3B97D3"/>
+      <text x="26" y="25" font-size="14" font-weight="700" fill="#3B97D3" text-anchor="middle">2</text>
+      <text x="50" y="26" font-size="18" font-weight="700" fill="#eef3f2">Nf3</text>
+      <text x="100" y="26" font-size="14" fill="#9fb3ba">Develops the knight toward active squares.</text>
+      <rect x="426" y="9" width="44" height="22" rx="6" fill="#cfd8d5"/>
+      <text x="448" y="25" font-size="13" font-weight="700" fill="#11181c" text-anchor="middle">+0.2</text>
+    </g>
+    <g transform="translate(0,104)">
+      <rect x="0" y="0" width="478" height="40" rx="12" fill="#11181c" stroke="#2a343a"/>
+      <circle cx="26" cy="20" r="12" fill="#7E8CE0" fill-opacity="0.2" stroke="#7E8CE0"/>
+      <text x="26" y="25" font-size="14" font-weight="700" fill="#7E8CE0" text-anchor="middle">3</text>
+      <text x="50" y="26" font-size="18" font-weight="700" fill="#eef3f2">d4</text>
+      <text x="90" y="26" font-size="14" fill="#9fb3ba">A pawn move — claims space and shapes the center.</text>
+      <rect x="426" y="9" width="44" height="22" rx="6" fill="#cfd8d5"/>
+      <text x="448" y="25" font-size="13" font-weight="700" fill="#11181c" text-anchor="middle">+0.1</text>
+    </g>
+  </g>
+</svg>

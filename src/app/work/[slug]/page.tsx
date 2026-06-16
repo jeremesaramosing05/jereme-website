@@ -7,6 +7,7 @@ import { ButtonLink } from "@/components/ui/Button";
 import { PosDemo } from "@/components/work/PosDemo";
 import { DashboardDemo } from "@/components/work/DashboardDemo";
 import { ReaderDemo } from "@/components/work/ReaderDemo";
+import { ChessDemo } from "@/components/work/ChessDemo";
 import { getProject, projects } from "@/content/projects";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -142,6 +143,23 @@ export default async function ProjectPage({ params }: Props) {
           </p>
           <div className="mt-6">
             <ReaderDemo />
+          </div>
+        </Reveal>
+      )}
+
+      {project.demo === "chess" && (
+        <Reveal delay={0.2}>
+          <h2 className="mt-12 font-display text-2xl tracking-tight">
+            Try it live
+          </h2>
+          <p className="mt-4 leading-relaxed text-muted">
+            A faithful, in-browser preview of the coaching analysis. Move the
+            pieces — or tap a candidate line — and watch the five best moves,
+            their evaluations, principal variations, and coach&apos;s notes update
+            live. The shipped app runs Stockfish 18 on-device for full strength.
+          </p>
+          <div className="mt-6">
+            <ChessDemo />
           </div>
         </Reveal>
       )}
