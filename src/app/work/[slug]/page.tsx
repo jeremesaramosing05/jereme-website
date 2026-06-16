@@ -161,6 +161,24 @@ export default async function ProjectPage({ params }: Props) {
           <div className="mt-6">
             <ChessDemo />
           </div>
+          <div className="mt-8 rounded-2xl border border-line bg-surface p-6">
+            <h3 className="font-display text-xl tracking-tight">
+              Get the Android app
+            </h3>
+            <p className="mt-2 leading-relaxed text-muted">
+              The real app, with the full Stockfish 18 engine running offline on
+              your phone. Download the APK and install it (you may need to allow
+              &ldquo;Install unknown apps&rdquo;). Android, arm64.
+            </p>
+            <div className="mt-4">
+              <ButtonLink
+                href="https://github.com/jeremesaramosing05/jereme-website/releases/download/chess-app-latest/chess-trainer-arm64.apk"
+                external
+              >
+                Download for Android (APK)
+              </ButtonLink>
+            </div>
+          </div>
         </Reveal>
       )}
 

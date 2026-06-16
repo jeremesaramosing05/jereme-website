@@ -16,6 +16,8 @@ on:
 jobs:
   build-apk:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # needed to publish the APK as a Release asset
     defaults:
       run:
         working-directory: chess_app
@@ -75,11 +77,27 @@ jobs:
         # is relative to it — not prefixed with chess_app/ again.
         run: ls -lh build/app/outputs/flutter-apk/*.apk
 
+      - name: Rename arm64 APK for a clean download name
+        run: cp build/app/outputs/flutter-apk/app-arm64-v8a-release.apk build/app/outputs/flutter-apk/chess-trainer-arm64.apk
+
       - name: Upload arm64 APK artifact (single, smallest install for phones)
         # Upload only the arm64-v8a slice so the download is one file (~100 MB).
         # The size floor is set by the embedded Stockfish neural network.
         uses: actions/upload-artifact@v4
         with:
           name: chess-trainer-apk-arm64
-          path: chess_app/build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+          path: chess_app/build/app/outputs/flutter-apk/chess-trainer-arm64.apk
           if-no-files-found: error
+
+      - name: Publish APK to a GitHub Release (stable public download URL)
+        # Creates/updates the `chess-app-latest` release so the website can link
+        # to a permanent, login-free download:
+        # .../releases/download/chess-app-latest/chess-trainer-arm64.apk
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: chess-app-latest
+          name: Chess Trainer for Android
+          body: |
+            Offline chess training app (arm64). Install the APK on your phone
+            (allow "Install unknown apps"). Runs Stockfish 18 fully offline.
+          files: chess_app/build/app/outputs/flutter-apk/chess-trainer-arm64.apk
