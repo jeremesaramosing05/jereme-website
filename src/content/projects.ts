@@ -15,7 +15,7 @@ export type Project = {
   cover?: string;
   featured: boolean;
   /** Renders a live interactive demo on the case-study page when set */
-  demo?: "pos" | "dashboard" | "reader";
+  demo?: "pos" | "dashboard" | "reader" | "chess";
   caseStudy: {
     problem: string;
     process: string;
@@ -25,6 +25,27 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    slug: "chess-trainer-app",
+    title: "Chess Trainer — Coaching App",
+    year: "2026",
+    role: "Mobile App Development",
+    summary:
+      "An offline chess training app for Android and iOS that plays, analyzes, and teaches. Its coaching brain — Stockfish 18 running on-device — shows the five best moves for any position, each with an evaluation, opening-book or sideline label, principal variation, and a plain-language note on the idea behind it. For coaches, students, and players who want to train, play, and improve.",
+    tags: ["Flutter", "Android", "iOS", "Stockfish", "Chess"],
+    hue: 190,
+    cover: "/work/chess-trainer-app.svg",
+    featured: true,
+    demo: "chess",
+    caseStudy: {
+      problem:
+        "Most chess apps either play against you or hand you a single 'best move' with a number — neither really teaches. A student wants to understand why a move is good, how it compares to the alternatives, and whether they've left known theory. And it should all work offline on a phone, with a brain strong enough to trust. The goal was a training studio in your pocket: play, analyze, and learn from a master that explains itself.",
+      process:
+        "I built it in Flutter for Android and iOS, with Stockfish 18 compiled into the app and run natively via FFI — fully offline, no server. The centerpiece is a coaching analysis window driven by the engine's MultiPV mode: it surfaces the five best candidate moves at once, drawn as ranked arrows on the board, each with its evaluation, a Book / Mainline / Sideline label from a built-in opening book, its principal variation, and a rule-based coach's note explaining the idea. A move classifier grades play from brilliant to blunder using win-probability swings. Around the analysis core sit a play-vs-engine mode with adjustable Elo, a tactics trainer, and a coach-and-student mode where a coach sets a position and the student learns from the engine's reasoning.",
+      result:
+        "A pocket coach that doesn't just tell you the move — it shows you the five best ideas and teaches you why. The preview below is a faithful, in-browser recreation of the coaching analysis: move the pieces and watch the five best lines, evaluations, and coach's notes update live. The shipped app runs the full Stockfish 18 engine on-device.",
+    },
+  },
   {
     slug: "cost-estimate-app",
     title: "Cost & Estimate App",

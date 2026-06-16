@@ -110,10 +110,24 @@ Bitcode is already disabled in recent Xcode/Flutter defaults.
 
 ---
 
-## Run
+## Get the installable APK (no local setup)
+
+A GitHub Actions workflow (`.github/workflows/build-chess-apk.yml`) builds a
+release APK for you:
+
+1. Push this repo, open the **Actions** tab → **Build Chess Trainer APK** → **Run workflow**.
+2. When it finishes, download the **`chess-trainer-apk`** artifact.
+3. On your phone, enable *Install unknown apps* for your browser/file manager,
+   then open the `.apk` to install.
+
+The workflow runs `flutter create` (to generate the `android/` project),
+`flutter pub get`, analyze/tests, then `flutter build apk --release`.
+
+## Run locally
 
 ```bash
 flutter run            # pick your emulator/device
+flutter build apk --release   # or build the APK yourself
 ```
 
 ### Verify the engine first (Phase-2 smoke test)
