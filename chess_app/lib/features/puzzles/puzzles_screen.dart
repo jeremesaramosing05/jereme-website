@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/chess/chess_logic.dart';
+import '../../core/providers.dart';
 import '../../core/theme/app_theme.dart';
 import '../../models/puzzle.dart';
 import '../../shared/widgets/chess_board_view.dart';
