@@ -67,15 +67,17 @@ jobs:
       - name: Run unit tests
         run: flutter test || true
 
-      - name: Build release APK (arm64 only — ~90 MB, fits modern phones)
-        # Target arm64 alone so the downloadable artifact is a single ~90 MB
-        # APK instead of a multi-arch bundle. (arm64-v8a covers essentially all
-        # phones from the last several years.)
-        run: flutter build apk --release --target-platform android-arm64
+      - name: Build release APKs (per ABI)
+        run: flutter build apk --release --split-per-abi
 
-      - name: Upload APK artifact
+      - name: List built APK sizes
+        run: ls -lh chess_app/build/app/outputs/flutter-apk/*.apk
+
+      - name: Upload arm64 APK artifact (single, smallest install for phones)
+        # Upload only the arm64-v8a slice so the download is one file (~100 MB).
+        # The size floor is set by the embedded Stockfish neural network.
         uses: actions/upload-artifact@v4
         with:
-          name: chess-trainer-apk
-          path: chess_app/build/app/outputs/flutter-apk/app-release.apk
+          name: chess-trainer-apk-arm64
+          path: chess_app/build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
           if-no-files-found: error
