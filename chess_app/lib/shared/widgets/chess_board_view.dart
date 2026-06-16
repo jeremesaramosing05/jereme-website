@@ -1,6 +1,5 @@
 import 'package:chessground/chessground.dart' as cg;
 import 'package:dartchess/dartchess.dart';
-import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/chess/chess_logic.dart';
@@ -8,8 +7,10 @@ import '../../core/chess/chess_logic.dart';
 /// App-wide wrapper around the chessground board so every screen gets a
 /// consistent look and a single upgrade point.
 ///
-/// NOTE: chessground's API evolves across majors. This targets chessground
-/// ^10. If a build error mentions `GameData`/`onMove` signatures, adjust here.
+/// Targets chessground ^10.0, which uses a [cg.ChessboardController] holding the
+/// position/game state. We rebuild that controller's [cg.GameData] whenever the
+/// FEN or interactivity changes. Promotion is handled inside the board widget,
+/// which fires [onMove] with the fully-resolved move.
 class ChessBoardView extends StatefulWidget {
   final String fen;
   final Side orientation;
@@ -40,58 +41,67 @@ class ChessBoardView extends StatefulWidget {
 }
 
 class _ChessBoardViewState extends State<ChessBoardView> {
-  NormalMove? _promotionMove;
+  late final cg.ChessboardController _controller =
+      cg.ChessboardController(game: _gameData());
+
+  @override
+  void didUpdateWidget(ChessBoardView old) {
+    super.didUpdateWidget(old);
+    if (old.fen != widget.fen ||
+        old.playerSide != widget.playerSide ||
+        old.lastMove != widget.lastMove) {
+      _controller.updatePosition(_gameData(), resetPremove: true);
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  cg.GameData _gameData() {
+    final pos = ChessLogic.tryPosition(widget.fen);
+    final safeFen = pos != null ? widget.fen : ChessLogic.startFen;
+    final position = pos ?? ChessLogic.positionFromFen(ChessLogic.startFen);
+    final interactive = widget.playerSide != cg.PlayerSide.none;
+    return cg.GameData(
+      fen: safeFen,
+      playerSide: widget.playerSide,
+      sideToMove: position.turn,
+      validMoves: interactive ? _validMoves(position) : const {},
+      lastMove: widget.lastMove,
+    );
+  }
+
+  cg.ValidMoves _validMoves(Position pos) {
+    final map = <Square, Set<Square>>{};
+    for (final entry in pos.legalMoves.entries) {
+      final dests = entry.value.squares;
+      if (dests.isNotEmpty) map[entry.key] = dests.toSet();
+    }
+    return map;
+  }
 
   @override
   Widget build(BuildContext context) {
-    final position = ChessLogic.tryPosition(widget.fen);
-
     return LayoutBuilder(
       builder: (context, constraints) {
         final size = constraints.biggest.shortestSide;
         return cg.Chessboard(
           size: size,
+          controller: _controller,
           orientation: widget.orientation,
-          fen: widget.fen,
-          lastMove: widget.lastMove,
-          shapes: ISet(widget.shapes),
           settings: cg.ChessboardSettings(
             enableCoordinates: widget.showCoordinates,
             animationDuration: const Duration(milliseconds: 180),
           ),
-          game: position == null
-              ? null
-              : cg.GameData(
-                  playerSide: widget.playerSide,
-                  sideToMove: position.turn,
-                  validMoves: cg.makeLegalMoves(position),
-                  promotionMove: _promotionMove,
-                  isCheck: position.isCheck,
-                  onMove: _onMove,
-                  onPromotionSelection: _onPromotion,
-                ),
+          onMove: (move, {bool? viaDragAndDrop}) =>
+              widget.onMove?.call(move.uci),
+          shapes: widget.shapes.toSet(),
         );
       },
     );
-  }
-
-  void _onMove(NormalMove move, {bool? isDrop}) {
-    final uci = move.uci;
-    // Detect a promotion that arrived without a role and prompt for the piece.
-    if (ChessLogic.applyUci(widget.fen, uci) == null &&
-        ChessLogic.applyUci(widget.fen, '${uci}q') != null) {
-      setState(() => _promotionMove = move);
-      return;
-    }
-    widget.onMove?.call(uci);
-  }
-
-  void _onPromotion(Role? role) {
-    final move = _promotionMove;
-    setState(() => _promotionMove = null);
-    if (move == null || role == null) return;
-    final promo = NormalMove(from: move.from, to: move.to, promotion: role);
-    widget.onMove?.call(promo.uci);
   }
 }
 

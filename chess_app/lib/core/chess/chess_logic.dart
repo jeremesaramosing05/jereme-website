@@ -38,8 +38,9 @@ class ChessLogic {
   /// Render a UCI principal variation as SAN, starting from [fen].
   /// Stops cleanly if any move becomes illegal.
   static List<String> pvToSan(String fen, List<String> pvUci, {int max = 12}) {
-    var pos = tryPosition(fen);
-    if (pos == null) return const [];
+    final start = tryPosition(fen);
+    if (start == null) return const [];
+    Position pos = start; // non-nullable so makeSan stays promoted across the loop
     final out = <String>[];
     for (final uci in pvUci.take(max)) {
       final move = Move.parse(uci);
