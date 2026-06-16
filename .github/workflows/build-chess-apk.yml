@@ -33,19 +33,33 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          # Pinned to thread two needles:
-          #  * chessground ^10 needs meta ^1.18 (Dart >= 3.9), so Flutter >= 3.35.
-          #  * stockfish 1.8.1's Android plugin uses jcenter(), removed in the
-          #    Gradle 9 / AGP 9 toolchain of Flutter 3.44+, so we stay below that.
-          # 3.35.7 (Dart 3.9.2, Gradle 8 / AGP 8) satisfies both.
-          flutter-version: 3.35.7
+          # chessground ^10 requires meta ^1.18, which Flutter pins only from
+          # 3.44 onward — the same release that moved to AGP 9 / Gradle 9. There
+          # is no version with meta>=1.18 AND AGP 8, so we use 3.44 and work
+          # around the two AGP-9 issues the stockfish 1.8.1 plugin hits (below).
+          flutter-version: 3.44.2
           cache: true
 
       - name: Generate Android platform project
         run: flutter create --platforms=android --org com.jereme --project-name chess_app .
 
+      - name: Work around AGP 9 (read legacy plugin DSL)
+        # The stockfish plugin ships a legacy Groovy build.gradle; AGP 9 reads
+        # only the new DSL by default, which breaks applying it. Opt out.
+        run: |
+          echo "android.newDsl=false" >> android/gradle.properties
+
       - name: Install dependencies
         run: flutter pub get
+
+      - name: Patch stockfish plugin Gradle (jcenter -> mavenCentral)
+        # jcenter() was removed in Gradle 9; the stockfish 1.8.1 plugin still
+        # references it. Repoint to mavenCentral in the resolved pub-cache copy.
+        run: |
+          f=$(find ~/.pub-cache -path '*stockfish*/android/build.gradle' | head -1)
+          echo "Patching: $f"
+          sed -i 's/jcenter()/mavenCentral()/g' "$f"
+          grep -n 'Central\|jcenter' "$f" || true
 
       - name: Analyze (non-blocking)
         run: flutter analyze || true
