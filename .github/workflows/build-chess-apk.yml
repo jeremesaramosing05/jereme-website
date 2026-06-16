@@ -33,6 +33,10 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
+          # Pinned: the stockfish 1.8.1 plugin's Gradle config uses jcenter(),
+          # which is removed in the Gradle 9 / AGP 9 toolchain bundled with the
+          # latest Flutter. 3.29.x ships Gradle 8 / AGP 8 and builds it cleanly.
+          flutter-version: 3.29.3
           cache: true
 
       - name: Generate Android platform project
