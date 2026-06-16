@@ -67,15 +67,19 @@ jobs:
       - name: Run unit tests
         run: flutter test || true
 
-      - name: Build release APKs (per ABI — smaller installs)
-        # --split-per-abi produces a separate, much smaller APK per CPU arch.
-        # Install app-arm64-v8a-release.apk on a modern phone (~90 MB) instead
-        # of the ~275 MB universal APK.
+      - name: Build release APKs (per ABI)
         run: flutter build apk --release --split-per-abi
 
-      - name: Upload APK artifacts
+      - name: List built APK sizes
+        # This step runs inside chess_app/ (job working-directory), so the path
+        # is relative to it — not prefixed with chess_app/ again.
+        run: ls -lh build/app/outputs/flutter-apk/*.apk
+
+      - name: Upload arm64 APK artifact (single, smallest install for phones)
+        # Upload only the arm64-v8a slice so the download is one file (~100 MB).
+        # The size floor is set by the embedded Stockfish neural network.
         uses: actions/upload-artifact@v4
         with:
-          name: chess-trainer-apk
-          path: chess_app/build/app/outputs/flutter-apk/*-release.apk
+          name: chess-trainer-apk-arm64
+          path: chess_app/build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
           if-no-files-found: error
