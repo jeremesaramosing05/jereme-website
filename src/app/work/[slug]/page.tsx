@@ -8,7 +8,6 @@ import { PosDemo } from "@/components/work/PosDemo";
 import { DashboardDemo } from "@/components/work/DashboardDemo";
 import { ReaderDemo } from "@/components/work/ReaderDemo";
 import { ChessDemo } from "@/components/work/ChessDemo";
-import { ChessDownloadGate } from "@/components/work/ChessDownloadGate";
 import { getProject, projects } from "@/content/projects";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -168,12 +167,16 @@ export default async function ProjectPage({ params }: Props) {
             </h3>
             <p className="mt-2 leading-relaxed text-muted">
               The real app, with the full Stockfish 18 engine running offline on
-              your phone. This download is private — enter the access code to
-              unlock it, then install the APK (you may need to allow
+              your phone. Download the APK and install it (you may need to allow
               &ldquo;Install unknown apps&rdquo;). Android, arm64.
             </p>
             <div className="mt-4">
-              <ChessDownloadGate />
+              <ButtonLink
+                href="https://github.com/jeremesaramosing05/jereme-website/releases/download/chess-app-latest/chess-trainer-arm64.apk"
+                external
+              >
+                Download for Android (APK)
+              </ButtonLink>
             </div>
           </div>
         </Reveal>
