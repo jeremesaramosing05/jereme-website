@@ -22,6 +22,8 @@ export type Project = {
     result: string;
   };
   link?: { label: string; href: string };
+  /** Optional SEO overrides for the case-study page (title/description/keywords). */
+  seo?: { title?: string; description?: string; keywords?: string[] };
 };
 
 export const projects: Project[] = [
@@ -44,6 +46,26 @@ export const projects: Project[] = [
         "I built it in Flutter for Android and iOS, with Stockfish 18 compiled into the app and run natively via FFI — fully offline, no server. The centerpiece is a coaching analysis window driven by the engine's MultiPV mode: it surfaces the five best candidate moves at once, drawn as ranked arrows on the board, each with its evaluation, a Book / Mainline / Sideline label from a built-in opening book, its principal variation, and a rule-based coach's note explaining the idea. A move classifier grades play from brilliant to blunder using win-probability swings. Around the analysis core sit a play-vs-engine mode with adjustable Elo, a tactics trainer, and a coach-and-student mode where a coach sets a position and the student learns from the engine's reasoning.",
       result:
         "A pocket coach that doesn't just tell you the move — it shows you the five best ideas and teaches you why. The preview below is a faithful, in-browser recreation of the coaching analysis: move the pieces and watch the five best lines, evaluations, and coach's notes update live. The shipped app runs the full Stockfish 18 engine on-device.",
+    },
+    seo: {
+      title: "Chess Trainer — Free Offline Chess Coaching App (Stockfish 18)",
+      description:
+        "Learn chess with a pocket coach. Chess Trainer shows the 5 best moves with evaluations and plain-language coaching, powered by Stockfish 18 — fully offline. Play the engine, solve tactics puzzles, and train openings (Italian, Ruy Lopez & more). Free download + live in-browser demo.",
+      keywords: [
+        "learn chess",
+        "chess trainer",
+        "chess coach app",
+        "chess app",
+        "Stockfish 18",
+        "offline chess app",
+        "chess analysis",
+        "best moves",
+        "chess openings",
+        "chess tactics puzzles",
+        "play chess vs engine",
+        "free chess app",
+        "Android chess app",
+      ],
     },
   },
   {
