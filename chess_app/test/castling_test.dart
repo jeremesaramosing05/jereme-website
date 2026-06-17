@@ -52,9 +52,12 @@ void main() {
     });
 
     test('through an attacked square (rook on f8 covers f1)', () {
-      const throughCheck = 'k4r2/8/8/8/8/8/8/R3K2R w KQ - 0 1';
+      // Black king on g8 (off the a/h files so the white rooks don't check it,
+      // which would make the position illegal). The f8 rook covers f1 — the
+      // king's kingside transit square — so O-O is illegal, while the queenside
+      // path (d1/c1) is safe and O-O-O remains legal.
+      const throughCheck = '5rk1/8/8/8/8/8/8/R3K2R w KQ - 0 1';
       expect(ChessLogic.applyUci(throughCheck, 'e1g1'), isNull);
-      // The queenside path is safe, so O-O-O is still legal.
       final qs = ChessLogic.applyUci(throughCheck, 'e1c1');
       expect(qs, isNotNull);
       expect(qs!.san, 'O-O-O');
