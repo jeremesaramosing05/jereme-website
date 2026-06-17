@@ -151,46 +151,7 @@ export const projects: Project[] = [
       result:
         "One reader for everything you read — import a file and it lands in a tidy shelf with a generated cover, opens in a distraction-free page, and remembers where you were. The interactive demo below is a faithful preview of the app: browse the library, open a book, switch themes, and resize the type right in your browser.",
     },
-  },
-  {
-    slug: "motion-graphics-reel",
-    title: "Motion Graphics Reel",
-    year: "2026",
-    role: "Motion Design",
-    summary:
-      "Programmatic motion graphics and intro videos built with Remotion — animation written as code.",
-    tags: ["Remotion", "Motion Design", "Video"],
-    hue: 28,
-    featured: true,
-    caseStudy: {
-      problem:
-        "Traditional video editing makes revisions slow and repetitive. Each new version of an intro meant re-editing by hand.",
-      process:
-        "Built the animations in Remotion, where every scene is a React component — timing, easing, and copy are all variables that can be changed instantly.",
-      result:
-        "A reusable motion system that renders polished intro videos on demand, including the ESL course intro series.",
-    },
-  },
-  {
-    slug: "esl-ebook",
-    title: "ESL Learning Ebook",
-    year: "2026",
-    role: "Design & Writing",
-    summary:
-      "A beautifully typeset ebook that makes English learning approachable for beginners.",
-    tags: ["Editorial Design", "Education", "Typography"],
-    hue: 210,
-    featured: true,
-    caseStudy: {
-      problem:
-        "Most ESL materials feel dense and intimidating. Learners needed something that felt friendly from the first page.",
-      process:
-        "Designed a calm, generous layout with a clear typographic rhythm, paired with plain-language lessons and visual examples.",
-      result:
-        "An ebook learners actually enjoy opening — approachable, scannable, and easy to follow.",
-    },
-  },
-  {
+  },  {
     slug: "qms-dashboard",
     title: "QMS Web Dashboard",
     year: "2026",

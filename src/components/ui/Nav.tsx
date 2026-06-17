@@ -9,6 +9,7 @@ import { profile } from "@/content/profile";
 const links = [
   { href: "/work", label: "Work" },
   { href: "/library", label: "Library" },
+  { href: "/notebook", label: "Notebook" },
   { href: "/resume", label: "Resume" },
   { href: "/links", label: "Links" },
   { href: "/contact", label: "Contact" },

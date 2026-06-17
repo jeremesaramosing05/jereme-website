@@ -3,7 +3,7 @@
 // Add a real cover image by dropping a file in /public/library/<slug>.jpg
 // and setting `cover: "/library/<slug>.jpg"` on the book entry.
 
-export type ShelfId = "mine" | "comics" | "design" | "language" | "wonders";
+export type ShelfId = "comics" | "design" | "language" | "wonders";
 
 export type Shelf = {
   id: ShelfId;
@@ -31,7 +31,6 @@ export type Book = {
 };
 
 export const shelves: Shelf[] = [
-  { id: "mine",     label: "Written by Me" },
   { id: "comics",   label: "Original Comics" },
   { id: "design",   label: "Design & Motion" },
   { id: "language", label: "Language & Learning" },
@@ -39,30 +38,6 @@ export const shelves: Shelf[] = [
 ];
 
 export const books: Book[] = [
-  // ── Written by Me ────────────────────────────────────────────────
-  {
-    slug: "esl-ebook",
-    title: "ESL Learning Ebook",
-    author: "Jereme Saramosing",
-    year: "2026",
-    shelf: "mine",
-    summary: "A beautifully typeset guide that makes English learning approachable for beginners.",
-    hue: 210,
-    isMine: true,
-    link: "/work/esl-ebook",
-    featured: true,
-  },
-  {
-    slug: "motion-graphics-reel",
-    title: "Motion Graphics Reel",
-    author: "Jereme Saramosing",
-    year: "2026",
-    shelf: "mine",
-    summary: "Programmatic animations and intro videos built with Remotion — motion written as code.",
-    hue: 28,
-    isMine: true,
-    link: "/work/motion-graphics-reel",
-  },
   // ── Original Comics ──────────────────────────────────────────────
   {
     slug: "lifetime-in-a-heartbeat",
