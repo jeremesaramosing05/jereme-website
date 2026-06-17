@@ -15,7 +15,7 @@ class SettingsRepository {
         showCoordinates: _prefs.getBool('showCoordinates') ?? true,
         soundEnabled: _prefs.getBool('soundEnabled') ?? true,
         hapticsEnabled: _prefs.getBool('hapticsEnabled') ?? true,
-        defaultElo: _prefs.getInt('defaultElo') ?? 1500,
+        defaultElo: _prefs.getInt('defaultElo') ?? 2000,
         analysisDepth: _prefs.getInt('analysisDepth') ?? 20,
         deepAnalysis: _prefs.getBool('deepAnalysis') ?? false,
         deepenBestLine: _prefs.getBool('deepenBestLine') ?? true,

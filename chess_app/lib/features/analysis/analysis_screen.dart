@@ -146,7 +146,21 @@ class _AnalysisScreenState extends ConsumerState<AnalysisScreen> {
         }
         return Column(
           children: [
-            Padding(padding: const EdgeInsets.all(12), child: board),
+            Padding(
+              padding: const EdgeInsets.all(12),
+              // Bound the board area's height. The eval bar is a Column with
+              // Expanded children and needs a bounded height; in a portrait
+              // Column the stretch Row would otherwise be vertically unbounded.
+              // In debug that asserts; in a release APK the assert is skipped
+              // and the board silently grows, collapsing the coaching panel
+              // (the five candidate cards) to zero height.
+              child: LayoutBuilder(
+                builder: (context, c) {
+                  final side = (c.maxWidth - 24).clamp(0.0, double.infinity);
+                  return SizedBox(height: side, child: board);
+                },
+              ),
+            ),
             Expanded(child: coaching),
           ],
         );
@@ -264,7 +278,7 @@ class _AnalysisScreenState extends ConsumerState<AnalysisScreen> {
             IconButton.filledTonal(
                 onPressed: _index > 0 ? () => _go(-1) : null,
                 icon: const Icon(Icons.chevron_left)),
-            Text('${_index} / ${_history.length - 1}',
+            Text('$_index / ${_history.length - 1}',
                 style: const TextStyle(fontWeight: FontWeight.w600)),
             IconButton.filledTonal(
                 onPressed: _index < _history.length - 1 ? () => _go(1) : null,

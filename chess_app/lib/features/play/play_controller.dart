@@ -25,7 +25,7 @@ class PlayState {
     this.outcome,
   });
 
-  factory PlayState.initial() => PlayState(fens: [ChessLogic.startFen]);
+  factory PlayState.initial() => const PlayState(fens: [ChessLogic.startFen]);
 
   String get fen => fens.last;
   bool get whiteToMove => ChessLogic.isWhiteToMove(fen);

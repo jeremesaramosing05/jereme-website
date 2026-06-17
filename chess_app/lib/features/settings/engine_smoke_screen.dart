@@ -28,10 +28,10 @@ class _EngineSmokeScreenState extends ConsumerState<EngineSmokeScreen> {
     final engine = ref.read(engineServiceProvider);
     final sub = engine.events.listen((e) => setState(() => _log.add(e.toString())));
     try {
-      await engine.analyze(SearchRequest(
+      await engine.analyze(const SearchRequest(
         fen: ChessLogic.startFen,
         whiteToMove: true,
-        config: const EngineConfig(multiPv: 1, depth: 12),
+        config: EngineConfig(multiPv: 1, depth: 12),
       ));
       _log.add('✅ Engine responded — FFI is working.');
     } catch (e) {

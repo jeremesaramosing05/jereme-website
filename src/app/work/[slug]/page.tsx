@@ -20,7 +20,29 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const project = getProject(slug);
   if (!project) return {};
-  return { title: project.title, description: project.summary };
+  const title = project.seo?.title ?? project.title;
+  const description = project.seo?.description ?? project.summary;
+  const url = `/work/${project.slug}`;
+  const image = project.cover ?? undefined;
+  return {
+    title,
+    description,
+    keywords: project.seo?.keywords,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "website",
+      url,
+      title,
+      description,
+      images: image ? [{ url: image }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: image ? [image] : undefined,
+    },
+  };
 }
 
 const sections = [
