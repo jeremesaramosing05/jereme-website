@@ -74,6 +74,52 @@ class _ChessBoardViewState extends State<ChessBoardView> {
     );
   }
 
+  /// Handle a move from the board. If a pawn reaches the last rank without a
+  /// promotion piece already chosen, ask the player which piece to promote to
+  /// (Queen/Rook/Bishop/Knight) and emit the move with that suffix.
+  Future<void> _handleMove(String uci) async {
+    // The move may already carry a promotion piece (e.g. "e7e8q").
+    if (uci.length >= 5) {
+      widget.onMove?.call(uci);
+      return;
+    }
+    final pos = ChessLogic.tryPosition(widget.fen);
+    final isPawn =
+        pos != null && pos.board.roleAt(Square.fromName(uci.substring(0, 2))) == Role.pawn;
+    final toRank = uci.substring(3, 4); // destination rank digit
+    final reachesLastRank = toRank == '8' || toRank == '1';
+
+    if (isPawn && reachesLastRank) {
+      final role = await _pickPromotion();
+      if (!mounted) return;
+      if (role == null) {
+        // Cancelled — revert the board to the position before the move.
+        _controller.updatePosition(_gameData(), resetPremove: true);
+        return;
+      }
+      widget.onMove?.call('$uci$role');
+    } else {
+      widget.onMove?.call(uci);
+    }
+  }
+
+  Future<String?> _pickPromotion() {
+    const choices = [('Queen', 'q'), ('Rook', 'r'), ('Bishop', 'b'), ('Knight', 'n')];
+    return showDialog<String>(
+      context: context,
+      builder: (ctx) => SimpleDialog(
+        title: const Text('Promote pawn to'),
+        children: [
+          for (final (label, code) in choices)
+            SimpleDialogOption(
+              onPressed: () => Navigator.pop(ctx, code),
+              child: Text(label),
+            ),
+        ],
+      ),
+    );
+  }
+
   cg.ValidMoves _validMoves(Position pos) {
     final map = <Square, Set<Square>>{};
     for (final entry in pos.legalMoves.entries) {
@@ -115,8 +161,7 @@ class _ChessBoardViewState extends State<ChessBoardView> {
             enableCoordinates: widget.showCoordinates,
             animationDuration: const Duration(milliseconds: 180),
           ),
-          onMove: (move, {bool? viaDragAndDrop}) =>
-              widget.onMove?.call(move.uci),
+          onMove: (move, {bool? viaDragAndDrop}) => _handleMove(move.uci),
           shapes: widget.shapes.toSet(),
         );
       },

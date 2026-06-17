@@ -27,7 +27,7 @@ class AppSettings {
     this.showCoordinates = true,
     this.soundEnabled = true,
     this.hapticsEnabled = true,
-    this.defaultElo = 1500,
+    this.defaultElo = 2000,
     this.analysisDepth = 20,
     this.deepAnalysis = false,
     this.deepenBestLine = true,
