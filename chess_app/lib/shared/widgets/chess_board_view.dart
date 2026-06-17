@@ -80,6 +80,25 @@ class _ChessBoardViewState extends State<ChessBoardView> {
       final dests = entry.value.squares;
       if (dests.isNotEmpty) map[entry.key] = dests.toSet();
     }
+    // dartchess lists castling as the king moving onto its own rook (e1->h1).
+    // Also offer the intuitive two-square king target (e1->g1/c1) so a player
+    // can castle by moving the king toward the rook. ChessLogic.applyUci
+    // accepts both encodings.
+    void addCastleTarget(String king, String rook, String kingTwoSquares) {
+      final from = Square.fromName(king);
+      final dests = map[from];
+      if (dests != null && dests.contains(Square.fromName(rook))) {
+        dests.add(Square.fromName(kingTwoSquares));
+      }
+    }
+
+    if (pos.turn == Side.white) {
+      addCastleTarget('e1', 'h1', 'g1');
+      addCastleTarget('e1', 'a1', 'c1');
+    } else {
+      addCastleTarget('e8', 'h8', 'g8');
+      addCastleTarget('e8', 'a8', 'c8');
+    }
     return map;
   }
 

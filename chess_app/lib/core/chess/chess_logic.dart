@@ -25,12 +25,42 @@ class ChessLogic {
     return p?.turn == Side.white;
   }
 
+  /// Standard UCI encodes castling as the king moving two squares
+  /// (`e1g1`/`e1c1`), which is what Stockfish emits and what a player naturally
+  /// plays. dartchess instead encodes castling as the king moving onto its own
+  /// rook (`e1h1`/`e1a1`). Without translation, `pos.isLegal` rejects the
+  /// standard form, so neither the engine nor the player could ever castle.
+  static const _castlingAliases = {
+    'e1g1': 'e1h1', // White O-O
+    'e1c1': 'e1a1', // White O-O-O
+    'e8g8': 'e8h8', // Black O-O
+    'e8c8': 'e8a8', // Black O-O-O
+  };
+
+  /// Resolve [uci] to a legal [Move] in [pos], accepting both the standard
+  /// two-square castling form and dartchess's king-onto-rook form.
+  static Move? legalMove(Position pos, String uci) {
+    final move = Move.parse(uci);
+    if (move == null) return null;
+    if (pos.isLegal(move)) return move;
+    // Not legal as written — try the dartchess castling encoding, but only when
+    // a king actually sits on the from-square (so e.g. a rook's e1->g1 slide is
+    // never misread as castling). isLegal on the alias is the real guard.
+    final alias = _castlingAliases[uci];
+    if (alias == null) return null;
+    final from = Square.fromName(uci.substring(0, 2));
+    if (pos.board.roleAt(from) != Role.king) return null;
+    final aliasMove = Move.parse(alias);
+    if (aliasMove != null && pos.isLegal(aliasMove)) return aliasMove;
+    return null;
+  }
+
   /// Apply a UCI move to a FEN, returning (newFen, san) or null if illegal.
   static ({String fen, String san})? applyUci(String fen, String uci) {
     final pos = tryPosition(fen);
     if (pos == null) return null;
-    final move = Move.parse(uci);
-    if (move == null || !pos.isLegal(move)) return null;
+    final move = legalMove(pos, uci);
+    if (move == null) return null;
     final (next, san) = pos.makeSan(move);
     return (fen: next.fen, san: san);
   }
@@ -43,8 +73,8 @@ class ChessLogic {
     Position pos = start; // non-nullable so makeSan stays promoted across the loop
     final out = <String>[];
     for (final uci in pvUci.take(max)) {
-      final move = Move.parse(uci);
-      if (move == null || !pos.isLegal(move)) break;
+      final move = legalMove(pos, uci);
+      if (move == null) break;
       final (next, san) = pos.makeSan(move);
       out.add(san);
       pos = next;
