@@ -1,0 +1,45 @@
+name: Website CI
+
+# Verifies the Next.js website on every push and PR: type-check, lint, unit
+# tests, and a production build (which statically generates every page, so a
+# broken page fails the build). The Flutter chess app has its own workflow
+# (build-chess-apk.yml), so changes that only touch chess_app/ are ignored here.
+
+on:
+  push:
+    branches: ["**"]
+    paths-ignore:
+      - "chess_app/**"
+      - ".github/workflows/build-chess-apk.yml"
+  pull_request:
+    paths-ignore:
+      - "chess_app/**"
+      - ".github/workflows/build-chess-apk.yml"
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type-check
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Unit tests
+        run: npm run test
+
+      - name: Build (static generation of all pages)
+        run: npm run build

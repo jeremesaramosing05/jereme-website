@@ -12,6 +12,11 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Static, pre-built assets served as-is (incl. multi-MB minified demo
+    // bundles). Linting these is meaningless and crashes ESLint's formatter.
+    "public/**",
+    // The Flutter app is Dart; it has its own analyzer (analysis_options.yaml).
+    "chess_app/**",
   ]),
   {
     rules: {

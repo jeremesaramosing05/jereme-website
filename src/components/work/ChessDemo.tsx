@@ -396,6 +396,10 @@ export function ChessDemo() {
   // Recompute analysis whenever the position changes (async so UI stays snappy).
   useEffect(() => {
     let cancelled = false;
+    // Intentional: show the "thinking" state the instant the position changes,
+    // before the debounced analysis below runs. The async work happens in the
+    // timeout, so this does not cause a meaningful cascading render.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setThinking(true);
     const t = setTimeout(() => {
       const result = analyze(fen);
