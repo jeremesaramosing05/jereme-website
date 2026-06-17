@@ -264,7 +264,7 @@ class _AnalysisScreenState extends ConsumerState<AnalysisScreen> {
             IconButton.filledTonal(
                 onPressed: _index > 0 ? () => _go(-1) : null,
                 icon: const Icon(Icons.chevron_left)),
-            Text('${_index} / ${_history.length - 1}',
+            Text('$_index / ${_history.length - 1}',
                 style: const TextStyle(fontWeight: FontWeight.w600)),
             IconButton.filledTonal(
                 onPressed: _index < _history.length - 1 ? () => _go(1) : null,
