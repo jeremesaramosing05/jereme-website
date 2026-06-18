@@ -8,7 +8,7 @@ export const profile = {
   tagline: "Creative developer & designer",
   heroLine:
     "I design and build elegant digital experiences — websites, motion graphics, and data stories.",
-  location: "Philippines",
+  location: "Davao City, Philippines",
   email: "jeremesaramosing05@gmail.com",
   about: [
     "I'm a multidisciplinary creator working at the intersection of design, code, and storytelling. From interactive dashboards to motion graphics, I care about the small details that make digital work feel considered and alive.",

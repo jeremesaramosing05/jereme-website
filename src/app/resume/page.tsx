@@ -1,11 +1,19 @@
 import type { Metadata } from "next";
 import { Reveal } from "@/components/motion/Reveal";
 import { ButtonLink } from "@/components/ui/Button";
-import { education, experience, toolset, type ResumeEntry } from "@/content/resume";
+import {
+  certifications,
+  education,
+  experience,
+  summary,
+  toolset,
+  type ResumeEntry,
+} from "@/content/resume";
 
 export const metadata: Metadata = {
   title: "Resume",
-  description: "Experience, education, and skills.",
+  description:
+    "Quality Control, data analytics, automation, and creative work — experience, education, skills, and certifications.",
 };
 
 function Timeline({ title, entries }: { title: string; entries: ResumeEntry[] }) {
@@ -44,18 +52,12 @@ export default function ResumePage() {
     <div className="mx-auto max-w-3xl px-6 py-24">
       <Reveal>
         <div className="flex flex-wrap items-end justify-between gap-6">
-          <div>
-            <h1 className="font-display text-4xl tracking-tight sm:text-5xl">
-              Resume
-            </h1>
-            <p className="mt-4 max-w-md leading-relaxed text-muted">
-              A snapshot of where I&apos;ve been and what I work with.
-            </p>
-          </div>
+          <h1 className="font-display text-4xl tracking-tight sm:text-5xl">Resume</h1>
           <ButtonLink href="/resume.pdf" download variant="ghost">
             Download PDF ↓
           </ButtonLink>
         </div>
+        <p className="mt-6 max-w-2xl leading-relaxed text-muted">{summary}</p>
       </Reveal>
 
       <Timeline title="Experience" entries={experience} />
@@ -71,6 +73,20 @@ export default function ResumePage() {
                 className="rounded-full border border-line px-4 py-1.5 text-sm"
               >
                 {tool}
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+      </section>
+
+      <section className="mt-16">
+        <Reveal>
+          <h2 className="font-display text-2xl tracking-tight">Certifications &amp; Training</h2>
+          <ul className="mt-6 grid gap-x-8 gap-y-2.5 sm:grid-cols-2">
+            {certifications.map((cert) => (
+              <li key={cert} className="flex gap-2.5 text-sm leading-relaxed text-muted">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden />
+                {cert}
               </li>
             ))}
           </ul>
