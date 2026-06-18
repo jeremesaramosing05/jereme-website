@@ -1,26 +1,27 @@
-// ── PLACEHOLDER CONTENT ──────────────────────────────────────────────
-// Replace the values below with your real bio, links, and tagline.
+// ── SITE IDENTITY ────────────────────────────────────────────────────
 // Everything on the site that talks about *you* reads from this file.
 
 export const profile = {
   name: "Jereme Saramosing",
   firstName: "Jereme",
-  tagline: "Creative developer & designer",
+  tagline: "Data analyst, builder & storyteller",
   heroLine:
-    "I design and build elegant digital experiences — websites, motion graphics, and data stories.",
+    "I turn data into clear decisions — and build the tools and stories around it.",
   location: "Davao City, Philippines",
   email: "jeremesaramosing05@gmail.com",
   about: [
-    "I'm a multidisciplinary creator working at the intersection of design, code, and storytelling. From interactive dashboards to motion graphics, I care about the small details that make digital work feel considered and alive.",
-    "I'm currently open to freelance projects, collaborations, and full-time opportunities. If you have an idea you'd like to bring to life, I'd love to hear about it.",
+    "I'm a detail-oriented remote professional with four years of Quality Control experience at San Miguel Corporation, one of the Philippines' largest F&B companies. I turn inspection and operational data into clear reports with SQL, Power BI, Tableau, and Excel — and automate the repetitive parts with Google Apps Script and AI tools like Claude, ChatGPT, and Gemini.",
+    "I'm also an independent graphic novelist and digital content creator, publishing original illustrated stories across YouTube, TikTok, and Facebook, and I build small apps for the things I care about. I'm open to remote work in Quality Control, Data Analytics, Virtual Assistance, Creative Writing, and English/Math tutoring — delivering accurate, high-quality output independently, from anywhere.",
   ],
   skills: [
-    "Web Development",
-    "UI / UX Design",
-    "Motion Graphics",
-    "Data Visualization",
-    "Video Editing",
+    "Data Analysis (SQL · Power BI · Tableau)",
+    "Advanced Excel & Reporting",
+    "Process Automation",
+    "AI-Assisted Productivity",
+    "Quality Control & HACCP",
+    "Graphic Novels & Storytelling",
     "Content Creation",
+    "English & Math Tutoring",
   ],
   literaryQuote: {
     text: "A reader lives a thousand lives before he dies. The man who never reads lives only one.",
