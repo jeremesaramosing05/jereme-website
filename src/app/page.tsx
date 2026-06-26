@@ -7,28 +7,49 @@ import { profile } from "@/content/profile";
 import { featuredProjects } from "@/content/projects";
 
 export default function Home() {
+  // Two-tone headline: everything after the em-dash picks up the brand accent.
+  const [heroHead, heroTail] = profile.heroLine.includes(" — ")
+    ? [
+        profile.heroLine.slice(0, profile.heroLine.indexOf(" — ") + 2),
+        profile.heroLine.slice(profile.heroLine.indexOf(" — ") + 3),
+      ]
+    : [profile.heroLine, ""];
+
   return (
     <>
       {/* Hero */}
-      <section className="mx-auto max-w-5xl px-6 pb-24 pt-28 sm:pt-36">
-        <HeroReveal>
-          <p className="text-sm uppercase tracking-[0.25em] text-accent">
-            {profile.tagline}
-          </p>
-        </HeroReveal>
-        <HeroReveal delay={0.12}>
-          <h1 className="mt-6 max-w-3xl text-balance font-display text-[clamp(2.75rem,7vw,4.75rem)] leading-[1.05] tracking-[-0.02em]">
-            {profile.heroLine}
-          </h1>
-        </HeroReveal>
-        <HeroReveal delay={0.24}>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <ButtonLink href="/work">View my work</ButtonLink>
-            <ButtonLink href="/contact" variant="ghost">
-              Get in touch
-            </ButtonLink>
-          </div>
-        </HeroReveal>
+      <section className="relative overflow-hidden">
+        {/* Warm accent glow behind the headline */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-32 left-[8%] -z-10 h-[520px] w-[760px] max-w-[120vw] rounded-full opacity-80 blur-[90px]"
+          style={{
+            background:
+              "radial-gradient(closest-side, color-mix(in oklab, var(--accent) 26%, transparent), transparent)",
+          }}
+        />
+        <div className="mx-auto max-w-5xl px-6 pb-24 pt-28 sm:pt-36">
+          <HeroReveal>
+            <p className="flex items-center gap-3 text-sm uppercase tracking-[0.25em] text-accent">
+              <span aria-hidden className="h-px w-8 bg-accent" />
+              {profile.tagline}
+            </p>
+          </HeroReveal>
+          <HeroReveal delay={0.12}>
+            <h1 className="mt-7 max-w-4xl text-balance font-display text-[clamp(2.85rem,7.5vw,5.25rem)] font-medium leading-[1.04] tracking-[-0.025em]">
+              {heroHead}
+              <span className="text-accent"> {heroTail}</span>
+            </h1>
+          </HeroReveal>
+          <HeroReveal delay={0.24}>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <ButtonLink href="/work">View my work</ButtonLink>
+              <ButtonLink href="/contact" variant="ghost">
+                Get in touch
+              </ButtonLink>
+            </div>
+          </HeroReveal>
+        </div>
       </section>
 
       {/* Literary quote */}

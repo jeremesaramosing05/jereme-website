@@ -44,7 +44,7 @@ export function ProjectCard({ project }: { project: Project }) {
       href={`/work/${project.slug}`}
       className="group block focus-visible:outline-accent"
     >
-      <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-line bg-surface">
+      <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-line bg-surface shadow-sm transition-all duration-500 group-hover:-translate-y-1 group-hover:border-accent/40 group-hover:shadow-xl group-hover:shadow-foreground/10">
         <Cover project={project} />
       </div>
       <div className="mt-4 flex items-baseline justify-between gap-4">
