@@ -14,7 +14,8 @@
   --background: #111110;
   --surface: #1a1918;
   --foreground: #ede8e1;
-  --muted: #8a847b;
+  /* Lifted from #8a847b for comfortable muted-text contrast on surfaces (≈5.6:1) */
+  --muted: #9c958b;
   --line: #2d2b28;
   --accent: #c4935a;
   --accent-strong: #d9aa72;
@@ -48,6 +49,24 @@ body {
   font-family: var(--font-geist-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  /* Subtle optical refinements: contextual alternates + kerning */
+  font-feature-settings: "kern", "calt";
+}
+
+/* Typographic polish — even headline line-breaks, fewer prose orphans */
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Fraunces reads best with its optical-size axis tracking the type size */
+.font-display {
+  font-optical-sizing: auto;
 }
 
 ::selection {

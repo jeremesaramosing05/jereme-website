@@ -17,7 +17,7 @@ export default function Home() {
           </p>
         </HeroReveal>
         <HeroReveal delay={0.12}>
-          <h1 className="mt-6 max-w-3xl font-display text-5xl leading-[1.08] tracking-tight sm:text-7xl">
+          <h1 className="mt-6 max-w-3xl text-balance font-display text-[clamp(2.75rem,7vw,4.75rem)] leading-[1.05] tracking-[-0.02em]">
             {profile.heroLine}
           </h1>
         </HeroReveal>

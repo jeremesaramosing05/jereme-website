@@ -3,7 +3,8 @@
 import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
 
-const EASE = [0.21, 0.47, 0.32, 0.98] as const;
+// ease-out-expo: a fast, confident start that settles softly — feels premium
+const EASE = [0.16, 1, 0.3, 1] as const;
 
 type RevealProps = {
   children: ReactNode;
