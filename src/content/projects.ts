@@ -116,7 +116,7 @@ export const projects: Project[] = [
     year: "2026",
     role: "Full-Stack Development",
     summary:
-      "A complete point-of-sale and inventory app — product management, real-time stock control, cart, discounts, checkout, and printable receipts — built on Google Apps Script with a live spreadsheet as its database.",
+      "A complete multi-user point-of-sale and inventory app — PIN login with roles, cash and change, barcode scanning, restock and adjustments, a sales dashboard, and full stock traceability — built on Google Apps Script with a live spreadsheet as its database.",
     tags: ["Full-Stack", "Apps Script", "UI Design", "Inventory"],
     hue: 162,
     cover: "/work/pos-inventory-system.svg",
@@ -126,9 +126,9 @@ export const projects: Project[] = [
       problem:
         "Small shops rarely need expensive POS hardware — they need something simple, free, and reliable that runs on tools they already have. The challenge was to build a real sales-and-inventory system on top of an ordinary Google Sheet, with no servers to maintain and no software to install.",
       process:
-        "I designed a Google Sheet as the database (Products, Transactions, Settings) and wrote the application layer in Apps Script. The server handles the business logic — auto-generating product IDs, detecting duplicates, validating stock before every sale, deducting inventory, and logging each transaction with a unique ID. The cashier interface is a clean dialog: pick products, build a cart, apply a discount, complete the sale, and print a receipt.",
+        "I designed a Google Sheet as the database (Products, Transactions, Users, StockMovements, Settings) and wrote the application layer in Apps Script. The server handles the business logic — PIN login with Admin and Cashier roles enforced server-side, auto-generating product IDs, validating stock and cash before every sale, deducting inventory under a script lock so two cashiers can't oversell, and writing every stock change to a movement ledger for full traceability. The cashier workspace has four tabs: Sell (barcode scan, cart, discount, cash and change, receipt), Stock (restock, adjustments, add product), History (search, reprint, void with stock restored), and Reports (a sales dashboard with low-stock alerts). An audit log and automatic daily backups round it out.",
       result:
-        "A working POS that turns a blank spreadsheet into a functioning store — tracking inventory, preventing overselling, and producing receipts, all for free. The live demo below is a faithful browser recreation you can try right now.",
+        "A working, multi-user POS that turns a blank spreadsheet into a functioning store — enforcing roles, giving change, scanning barcodes, tracing every stock movement, voiding sales safely, and reporting on the day's takings, all for free. The live demo below is a faithful browser recreation you can try right now.",
     },
   },
   {

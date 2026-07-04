@@ -128,8 +128,10 @@ export default async function ProjectPage({ params }: Props) {
             Try it live
           </h2>
           <p className="mt-4 leading-relaxed text-muted">
-            A faithful browser recreation of the POS — build a cart, apply a
-            discount, complete a sale, and get a receipt. No login required.
+            A faithful browser recreation of the full system — sign in (Admin
+            PIN 1234, or Cashier 5678), build a cart, take cash and give change,
+            scan a barcode, restock, void a sale, and watch the reports and
+            audit log update live.
           </p>
           <div className="mt-6">
             <PosDemo />
