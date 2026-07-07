@@ -1,0 +1,91 @@
+Application ID,Barangay,Agency,Budget Utilization,Turnaround Days,Date Filed
+APP1001,San Isidro,Engineering Office,0.66,4,2024-02-05
+APP1002,Santo Nino,Social Welfare,0.67,5,2024-03-05
+APP1003,Bagong Silang,Treasury,0.68,6,2024-04-05
+APP1004,Poblacion,Health Office,0.69,7,2024-05-05
+APP1005,San Isidro,Engineering Office,0.7,8,2024-06-05
+APP1006,Santo Nino,Social Welfare,0.71,9,2024-07-05
+APP1007,Bagong Silang,Treasury,0.72,10,2024-08-05
+APP1008,Poblacion,Health Office,0.73,11,2024-09-05
+APP1009,San Isidro,Engineering Office,0.74,12,2024-10-05
+APP1010,Santo Nino,Social Welfare,0.75,13,2024-01-05
+APP1011,Bagong Silang,Treasury,0.76,3,2024-02-05
+APP1012,Poblacion,Health Office,0.77,4,2024-03-05
+APP1013,San Isidro,Engineering Office,0.78,5,2024-04-05
+APP1014,Santo Nino,Social Welfare,0.79,6,2024-05-05
+APP1015,Bagong Silang,Treasury,0.8,7,2024-06-05
+APP1016,Poblacion,Health Office,0.81,8,2024-07-05
+APP1017,San Isidro,Engineering Office,0.82,9,2024-08-05
+APP1018,Santo Nino,Social Welfare,0.83,10,2024-09-05
+APP1019,Bagong Silang,Treasury,0.84,11,2024-10-05
+APP1020,Poblacion,Health Office,0.85,12,2024-01-05
+APP1021,San Isidro,Engineering Office,0.86,13,2024-02-05
+APP1022,Santo Nino,Social Welfare,0.87,3,2024-03-05
+APP1023,Bagong Silang,Treasury,0.88,4,2024-04-05
+APP1024,Poblacion,Health Office,0.89,5,2024-05-05
+APP1025,San Isidro,Engineering Office,0.9,6,2024-06-05
+APP1026,Santo Nino,Social Welfare,0.91,7,2024-07-05
+APP1027,Bagong Silang,Treasury,0.92,8,2024-08-05
+APP1028,Poblacion,Health Office,0.93,9,2024-09-05
+APP1029,San Isidro,Engineering Office,0.94,10,2024-10-05
+APP1030,Santo Nino,Social Welfare,0.65,11,2024-01-05
+APP1031,Bagong Silang,Treasury,0.66,12,2024-02-05
+APP1032,Poblacion,Health Office,0.67,13,2024-03-05
+APP1033,San Isidro,Engineering Office,0.68,3,2024-04-05
+APP1034,Santo Nino,Social Welfare,0.69,4,2024-05-05
+APP1035,Bagong Silang,Treasury,0.7,5,2024-06-05
+APP1036,Poblacion,Health Office,0.71,6,2024-07-05
+APP1037,San Isidro,Engineering Office,0.72,7,2024-08-05
+APP1038,Santo Nino,Social Welfare,0.73,8,2024-09-05
+APP1039,Bagong Silang,Treasury,0.74,9,2024-10-05
+APP1040,Poblacion,Health Office,0.75,10,2024-01-05
+APP1041,San Isidro,Engineering Office,0.76,11,2024-02-05
+APP1042,Santo Nino,Social Welfare,0.77,12,2024-03-05
+APP1043,Bagong Silang,Treasury,0.78,13,2024-04-05
+APP1044,Poblacion,Health Office,0.79,3,2024-05-05
+APP1045,San Isidro,Engineering Office,0.8,4,2024-06-05
+APP1046,Santo Nino,Social Welfare,0.81,5,2024-07-05
+APP1047,Bagong Silang,Treasury,0.82,6,2024-08-05
+APP1048,Poblacion,Health Office,0.83,7,2024-09-05
+APP1049,San Isidro,Engineering Office,0.84,8,2024-10-05
+APP1050,Santo Nino,Social Welfare,0.85,9,2024-01-05
+APP1051,Bagong Silang,Treasury,0.86,10,2024-02-05
+APP1052,Poblacion,Health Office,0.87,11,2024-03-05
+APP1053,San Isidro,Engineering Office,0.88,12,2024-04-05
+APP1054,Santo Nino,Social Welfare,0.89,13,2024-05-05
+APP1055,Bagong Silang,Treasury,0.9,3,2024-06-05
+APP1056,Poblacion,Health Office,0.91,4,2024-07-05
+APP1057,San Isidro,Engineering Office,0.92,5,2024-08-05
+APP1058,Santo Nino,Social Welfare,0.93,6,2024-09-05
+APP1059,Bagong Silang,Treasury,0.94,7,2024-10-05
+APP1060,Poblacion,Health Office,0.65,8,2024-01-05
+APP1061,San Isidro,Engineering Office,0.66,9,2024-02-05
+APP1062,Santo Nino,Social Welfare,0.67,10,2024-03-05
+APP1063,Bagong Silang,Treasury,0.68,11,2024-04-05
+APP1064,Poblacion,Health Office,0.69,12,2024-05-05
+APP1065,San Isidro,Engineering Office,0.7,13,2024-06-05
+APP1066,Santo Nino,Social Welfare,0.71,3,2024-07-05
+APP1067,Bagong Silang,Treasury,0.72,4,2024-08-05
+APP1068,Poblacion,Health Office,0.73,5,2024-09-05
+APP1069,San Isidro,Engineering Office,0.74,6,2024-10-05
+APP1070,Santo Nino,Social Welfare,0.75,7,2024-01-05
+APP1071,Bagong Silang,Treasury,0.76,8,2024-02-05
+APP1072,Poblacion,Health Office,0.77,9,2024-03-05
+APP1073,San Isidro,Engineering Office,0.78,10,2024-04-05
+APP1074,Santo Nino,Social Welfare,0.79,11,2024-05-05
+APP1075,Bagong Silang,Treasury,0.8,12,2024-06-05
+APP1076,Poblacion,Health Office,0.81,13,2024-07-05
+APP1077,San Isidro,Engineering Office,0.82,3,2024-08-05
+APP1078,Santo Nino,Social Welfare,0.83,4,2024-09-05
+APP1079,Bagong Silang,Treasury,0.84,5,2024-10-05
+APP1080,Poblacion,Health Office,0.85,6,2024-01-05
+APP1081,San Isidro,Engineering Office,0.86,7,2024-02-05
+APP1082,Santo Nino,Social Welfare,0.87,8,2024-03-05
+APP1083,Bagong Silang,Treasury,0.88,9,2024-04-05
+APP1084,Poblacion,Health Office,0.89,10,2024-05-05
+APP1085,San Isidro,Engineering Office,0.9,11,2024-06-05
+APP1086,Santo Nino,Social Welfare,0.91,12,2024-07-05
+APP1087,Bagong Silang,Treasury,0.92,13,2024-08-05
+APP1088,Poblacion,Health Office,0.93,3,2024-09-05
+APP1089,San Isidro,Engineering Office,0.94,4,2024-10-05
+APP1090,Santo Nino,Social Welfare,0.65,5,2024-01-05

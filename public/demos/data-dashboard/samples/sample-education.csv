@@ -1,0 +1,91 @@
+Student ID,School,Course,GPA,Attendance Rate,Enrollment Date
+S1001,Lakeview Academy,Biology,2.1,0.81,2024-02-15
+S1002,Riverdale School,World History,2.2,0.82,2024-03-15
+S1003,Eastview Academy,English Lit,2.3,0.83,2024-04-15
+S1004,Northside High,Chemistry,2.4,0.84,2024-05-15
+S1005,Lakeview Academy,Algebra I,2.5,0.85,2024-06-15
+S1006,Riverdale School,Biology,2.6,0.86,2024-07-15
+S1007,Eastview Academy,World History,2.7,0.87,2024-08-15
+S1008,Northside High,English Lit,2.8,0.88,2024-09-15
+S1009,Lakeview Academy,Chemistry,2.9,0.89,2024-10-15
+S1010,Riverdale School,Algebra I,3.0,0.9,2024-01-15
+S1011,Eastview Academy,Biology,3.1,0.91,2024-02-15
+S1012,Northside High,World History,3.2,0.92,2024-03-15
+S1013,Lakeview Academy,English Lit,3.3,0.93,2024-04-15
+S1014,Riverdale School,Chemistry,3.4,0.94,2024-05-15
+S1015,Eastview Academy,Algebra I,3.5,0.95,2024-06-15
+S1016,Northside High,Biology,3.6,0.96,2024-07-15
+S1017,Lakeview Academy,World History,3.7,0.97,2024-08-15
+S1018,Riverdale School,English Lit,3.8,0.8,2024-09-15
+S1019,Eastview Academy,Chemistry,3.9,0.81,2024-10-15
+S1020,Northside High,Algebra I,2.0,0.82,2024-01-15
+S1021,Lakeview Academy,Biology,2.1,0.83,2024-02-15
+S1022,Riverdale School,World History,2.2,0.84,2024-03-15
+S1023,Eastview Academy,English Lit,2.3,0.85,2024-04-15
+S1024,Northside High,Chemistry,2.4,0.86,2024-05-15
+S1025,Lakeview Academy,Algebra I,2.5,0.87,2024-06-15
+S1026,Riverdale School,Biology,2.6,0.88,2024-07-15
+S1027,Eastview Academy,World History,2.7,0.89,2024-08-15
+S1028,Northside High,English Lit,2.8,0.9,2024-09-15
+S1029,Lakeview Academy,Chemistry,2.9,0.91,2024-10-15
+S1030,Riverdale School,Algebra I,3.0,0.92,2024-01-15
+S1031,Eastview Academy,Biology,3.1,0.93,2024-02-15
+S1032,Northside High,World History,3.2,0.94,2024-03-15
+S1033,Lakeview Academy,English Lit,3.3,0.95,2024-04-15
+S1034,Riverdale School,Chemistry,3.4,0.96,2024-05-15
+S1035,Eastview Academy,Algebra I,3.5,0.97,2024-06-15
+S1036,Northside High,Biology,3.6,0.8,2024-07-15
+S1037,Lakeview Academy,World History,3.7,0.81,2024-08-15
+S1038,Riverdale School,English Lit,3.8,0.82,2024-09-15
+S1039,Eastview Academy,Chemistry,3.9,0.83,2024-10-15
+S1040,Northside High,Algebra I,2.0,0.84,2024-01-15
+S1041,Lakeview Academy,Biology,2.1,0.85,2024-02-15
+S1042,Riverdale School,World History,2.2,0.86,2024-03-15
+S1043,Eastview Academy,English Lit,2.3,0.87,2024-04-15
+S1044,Northside High,Chemistry,2.4,0.88,2024-05-15
+S1045,Lakeview Academy,Algebra I,2.5,0.89,2024-06-15
+S1046,Riverdale School,Biology,2.6,0.9,2024-07-15
+S1047,Eastview Academy,World History,2.7,0.91,2024-08-15
+S1048,Northside High,English Lit,2.8,0.92,2024-09-15
+S1049,Lakeview Academy,Chemistry,2.9,0.93,2024-10-15
+S1050,Riverdale School,Algebra I,3.0,0.94,2024-01-15
+S1051,Eastview Academy,Biology,3.1,0.95,2024-02-15
+S1052,Northside High,World History,3.2,0.96,2024-03-15
+S1053,Lakeview Academy,English Lit,3.3,0.97,2024-04-15
+S1054,Riverdale School,Chemistry,3.4,0.8,2024-05-15
+S1055,Eastview Academy,Algebra I,3.5,0.81,2024-06-15
+S1056,Northside High,Biology,3.6,0.82,2024-07-15
+S1057,Lakeview Academy,World History,3.7,0.83,2024-08-15
+S1058,Riverdale School,English Lit,3.8,0.84,2024-09-15
+S1059,Eastview Academy,Chemistry,3.9,0.85,2024-10-15
+S1060,Northside High,Algebra I,2.0,0.86,2024-01-15
+S1061,Lakeview Academy,Biology,2.1,0.87,2024-02-15
+S1062,Riverdale School,World History,2.2,0.88,2024-03-15
+S1063,Eastview Academy,English Lit,2.3,0.89,2024-04-15
+S1064,Northside High,Chemistry,2.4,0.9,2024-05-15
+S1065,Lakeview Academy,Algebra I,2.5,0.91,2024-06-15
+S1066,Riverdale School,Biology,2.6,0.92,2024-07-15
+S1067,Eastview Academy,World History,2.7,0.93,2024-08-15
+S1068,Northside High,English Lit,2.8,0.94,2024-09-15
+S1069,Lakeview Academy,Chemistry,2.9,0.95,2024-10-15
+S1070,Riverdale School,Algebra I,3.0,0.96,2024-01-15
+S1071,Eastview Academy,Biology,3.1,0.97,2024-02-15
+S1072,Northside High,World History,3.2,0.8,2024-03-15
+S1073,Lakeview Academy,English Lit,3.3,0.81,2024-04-15
+S1074,Riverdale School,Chemistry,3.4,0.82,2024-05-15
+S1075,Eastview Academy,Algebra I,3.5,0.83,2024-06-15
+S1076,Northside High,Biology,3.6,0.84,2024-07-15
+S1077,Lakeview Academy,World History,3.7,0.85,2024-08-15
+S1078,Riverdale School,English Lit,3.8,0.86,2024-09-15
+S1079,Eastview Academy,Chemistry,3.9,0.87,2024-10-15
+S1080,Northside High,Algebra I,2.0,0.88,2024-01-15
+S1081,Lakeview Academy,Biology,2.1,0.89,2024-02-15
+S1082,Riverdale School,World History,2.2,0.9,2024-03-15
+S1083,Eastview Academy,English Lit,2.3,0.91,2024-04-15
+S1084,Northside High,Chemistry,2.4,0.92,2024-05-15
+S1085,Lakeview Academy,Algebra I,2.5,0.93,2024-06-15
+S1086,Riverdale School,Biology,2.6,0.94,2024-07-15
+S1087,Eastview Academy,World History,2.7,0.95,2024-08-15
+S1088,Northside High,English Lit,2.8,0.96,2024-09-15
+S1089,Lakeview Academy,Chemistry,2.9,0.97,2024-10-15
+S1090,Riverdale School,Algebra I,3.0,0.8,2024-01-15
